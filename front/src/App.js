@@ -4,8 +4,8 @@ import './App.css';
 
 import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
-import LoginPage from './components/login/LoginPage';
-import SignupPage from './components/login/SignupPage';
+import LoginPage from './components/pages/LoginPage';
+import SignupPage from './components/pages/SignupPage';
 
 
 function App() {
