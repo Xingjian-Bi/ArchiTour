@@ -100,21 +100,6 @@ function myDB() {
 		}
 	};
 
-	myDB.addItinerary = async (itineray) => {
-		let client;
-		try {
-			client = new MongoClient(url);
-			await client.connect();
-			const db = client.db(DB_name).collection("itinerary");
-			const res = await db.insertOne(itineray);
-			console.log("adds itinerary", res);
-			return res;
-		} catch (e) {
-			console.log(e);
-		} finally {
-			await client.close();
-		}
-	};
 
 	myDB.addStop = async (itinerayID, archiID) => {
 		let client;
