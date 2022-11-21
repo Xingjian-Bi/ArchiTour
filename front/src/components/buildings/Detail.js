@@ -2,7 +2,7 @@ import React from 'react';
 
 function Detail({ city, designer, address, phone, openhours }) {
   return (
-    <div className='detail'>
+    <div className='building-detail'>
       <h3>{city}</h3>
       <div className='detailInfo'>
         <h4>Designer: {designer}</h4>
