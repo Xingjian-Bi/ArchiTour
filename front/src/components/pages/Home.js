@@ -1,13 +1,16 @@
 import React, { Fragment } from 'react';
 import Search from '../layout/Search';
-// import Buildings from '../buildings/Buildings';
-import BuildingDetail from '../buildings/BuildingDetail';
+
+// Should use this one
+// import BuildingGrid from '../buildings/BuildingGrid';
+
+import BuildingUnit from '../buildings/BuildingUnit';
 
 function Home() {
   return (
     <Fragment>
       <Search />
-      <BuildingDetail />
+      <BuildingUnit />
     </Fragment>
   );
 }
