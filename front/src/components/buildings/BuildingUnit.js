@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import testImg from './test.jpeg';
 import { Link } from 'react-router-dom';
 

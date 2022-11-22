@@ -10,23 +10,27 @@ import BuildingDetail from './components/buildings/BuildingDetail';
 import LoginPage from './components/pages/LoginPage';
 import SignupPage from './components/pages/SignupPage';
 
+import ArchiState from './context/archiTour/ArchiState';
+
 function App() {
   return (
-    <Router>
-      <div className='App'>
-        <Navbar />
-        <div className='container'>
-          <Routes>
-            <Route path='/' element={<Home />} />
+    <ArchiState>
+      <Router>
+        <div className='App'>
+          <Navbar />
+          <div className='container'>
+            <Routes>
+              <Route path='/' element={<Home />} />
 
-            {/* <Route path='/user/login' element={<Login />} /> */}
-            <Route path='/buildings/:title' element={<BuildingDetail />} />
-            <Route path='/login' element={<LoginPage />} />
-            <Route path='/signup' element={<SignupPage />} />
-          </Routes>
+              {/* <Route path='/user/login' element={<Login />} /> */}
+              <Route path='/buildings/:title' element={<BuildingDetail />} />
+              <Route path='/login' element={<LoginPage />} />
+              <Route path='/signup' element={<SignupPage />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </ArchiState>
   );
 }
 export default App;

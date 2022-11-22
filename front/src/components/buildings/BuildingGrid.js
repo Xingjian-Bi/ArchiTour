@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from 'react';
-// import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import ArchiContext from '../../context/archiTour/archiContext';
 import BuildingUnit from '../buildings/BuildingUnit';
-// import { Link } from 'react-router-dom';
 
 // function BuildingGrid({buildings}) {
 function BuildingGrid() {
-  const [buildings, setBuildings] = useState([]);
+  const archiContext = useContext(ArchiContext);
 
-  useEffect(() => {
-    const fetchBuildings = async () => {
-      const rawData = await fetch('/allarchitectures');
-      const res = await rawData.json();
-      setBuildings(res);
-    };
-    fetchBuildings();
-  }, []);
+  // NEEDS TO BE MODIFIED
+  archiContext.showBuildings();
+
+  // import building from archiContext
+  const { buildings } = archiContext;
+  console.log(buildings);
 
   return (
     <div>
