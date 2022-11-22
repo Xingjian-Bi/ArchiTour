@@ -6,8 +6,11 @@ const path = require("path");
 const router = require("./routes/route.js");
 const configurePassport = require("./auth/authConfig.js");
 
+
 const port = process.env.PORT || 8000;
 const app = express();
+
+
 
 
 // app.use(
@@ -36,7 +39,7 @@ app.use(express.static(path.join(__dirname, "front/build")));
 // 	res.send("Hi");
 // });
 
-configurePassport(app);
+// configurePassport(app);
 
 
 //How do we start listening to the server
