@@ -53,7 +53,7 @@ function myDB() {
 			await client.connect();
 			const db = client.db(DB_name).collection(usersCollection);
 			const user = await db.findOne({ username: username });
-			console.log("find user name", user);
+			console.log("find user from db", user);
 			return user !== null && bcrypt.compareSync(password, user.password);
 		} catch (e) {
 			console.log(e);
