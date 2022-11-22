@@ -1,20 +1,22 @@
 const { MongoClient, ObjectID } = require("mongodb");
+const dotenv = require("dotenv");
+const bcrypt = require("bcrypt");
+dotenv.config();
 const url = process.env.MONGO_URL;
 const DB_name = "archi-tour-db";
 
 function myDB() {
 	const myDB = {};
 	const usersCollection = "users";
+	const archiCollection = "architectures";
 
 	myDB.findUserName = async (username) => {
 		let client;
 		try {
 			client = new MongoClient(url);
 			await client.connect();
-			const db = client.db(DB_name);
-			const user = await db
-				.collection(usersCollection)
-				.findOne({ username: username });
+			const db = client.db(DB_name).collection(usersCollection);
+			const user = await db.findOne({ username: username });
 			console.log("find user name", user);
 			return user;
 		} catch (e) {
@@ -27,15 +29,32 @@ function myDB() {
 	myDB.registerUser = async (username, password) => {
 		let client;
 		try {
+			const encriptPassword = bcrypt.hashSync(password, 10);
 			client = new MongoClient(url);
 			await client.connect();
 			const db = client.db(DB_name).collection(usersCollection);
 			const res = await db.insertOne({
 				username: username,
-				password: password,
+				password: encriptPassword,
 			});
 			console.log("register user", res);
 			return res;
+		} catch (e) {
+			console.log(e);
+		} finally {
+			await client.close();
+		}
+	};
+
+	myDB.authenticate = async (username, password) => {
+		let client;
+		try {
+			client = new MongoClient(url);
+			await client.connect();
+			const db = client.db(DB_name).collection(usersCollection);
+			const user = await db.findOne({ username: username });
+			console.log("find user name", user);
+			return user !== null && bcrypt.compareSync(password, user.password);
 		} catch (e) {
 			console.log(e);
 		} finally {
@@ -49,7 +68,7 @@ function myDB() {
 		try {
 			client = new MongoClient(url);
 			await client.connect();
-			const db = client.db(DB_name).collection("architectures");
+			const db = client.db(DB_name).collection(archiCollection);
 			let query = {};
 			if (findBy == ":name") {
 				query = { name: value };
@@ -68,12 +87,29 @@ function myDB() {
 		}
 	};
 
+	myDB.getAllArchitectures = async () => {
+		let client;
+		try {
+			client = new MongoClient(url);
+			await client.connect();
+			const db = client.db(DB_name).collection(archiCollection);
+			let query = {};
+			const res = await db.find(query).toArray();
+			console.log("list of all architectures", res);
+			return res;
+		} catch (e) {
+			console.log(e);
+		} finally {
+			await client.close();
+		}
+	};
+
 	myDB.getArchiByID = async (id) => {
 		let client;
 		try {
 			client = new MongoClient(url);
 			await client.connect();
-			const db = client.db(DB_name).collection("architectures");
+			const db = client.db(DB_name).collection(archiCollection);
 			const res = await db.findOne({ _id: new ObjectID(id) }).toArray();
 			console.log("get architecture by id", res);
 			return res;
