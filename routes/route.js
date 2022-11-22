@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const myDB = require('../db/myDB.js');
 // const passport = require("passport");
+
 require('dotenv').config();
 
 router.post('/signin', async (req, res) => {
@@ -10,40 +11,45 @@ router.post('/signin', async (req, res) => {
       req.body.username,
       req.body.password
     );
+    console.log('userRes', userRes);
     if (userRes) {
       req.session.user = req.body.username;
-      res.redirect('/buildings');
+      console.log('req.session.user: ', req.session.user);
+      res.status(200).json({ info: 'ok' });
     } else {
-      res.json({ error: 'User already exists' });
+      console.log('Incorrect password');
+      res.status(403).json({ info: 'Incorrect password' });
     }
   } catch (e) {
     res.status(400).send({ err: e });
   }
 });
 
-router.get('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/signin');
-});
+// router.get("/logout", (req, res) => {
+// 	req.logout();
+// 	res.redirect("/signin");
+// });
 
 // route for registering a new user
 router.post('/registerUser', async (req, res) => {
   try {
-    const findUserRes = await myDB.findUserName(req.body.userName);
+    const findUserRes = await myDB.findUserName(req.body.username);
     // console.log("Get username from login", findUserRes);
 
     // If findUserRes array is empty then we call registerUser function
-    if (findUserRes) {
-      res.json({ error: 'User already exists' });
+    if (findUserRes !== null) {
+      res.status(406).json({ error: 'User already exists' });
+    } else {
+      const registerUserRes = await myDB.registerUser(
+        req.body.username,
+        req.body.password
+      );
+      console.log('Created user in db', registerUserRes);
+      // res.redirect("/login");
+      res.status(200).json({ info: 'ok' });
+      // Send findUserRes to frontend and it will update accordingly
+      // res.send({ users: findUserRes });
     }
-    const registerUserRes = await myDB.registerUser(
-      req.body.username,
-      req.body.password
-    );
-    console.log('Created user in db', registerUserRes);
-    res.redirect('/login');
-    // Send findUserRes to frontend and it will update accordingly
-    // res.send({ users: findUserRes });
   } catch (e) {
     res.status(400).send({ err: e });
   }
@@ -57,7 +63,7 @@ router.get('/architectures/:findBy/:value', async (req, res) => {
       req.params.value
     );
     console.log('get architectures data from db ', archiRes);
-    res.send(archiRes);
+    res.send({ archiRes });
   } catch (e) {
     res.status(400).send({ err: 'error-route' });
   }
@@ -67,7 +73,7 @@ router.get('/allarchitectures', async (req, res) => {
   try {
     const archiRes = await myDB.getAllArchitectures();
     console.log('get all architectures data from db ', archiRes);
-    res.send(archiRes);
+    res.send({ archiRes });
   } catch (e) {
     res.status(400).send({ err: e });
   }

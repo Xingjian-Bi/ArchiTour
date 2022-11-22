@@ -295,13 +295,20 @@ img {
   border-radius: 5px;
 }
 
-.alert {
+/*.alert {
   padding: 0.7rem;
   margin: 1rem 0;
   opacity: 0.9;
   background: var(--light-color);
   color: #333;
 }
+*/
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
 
 .bg-light,
 .badge-light {
