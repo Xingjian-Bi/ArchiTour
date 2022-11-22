@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import testImg from './test.jpeg';
 import { Link } from 'react-router-dom';
 
-function BuildingUnit({ title, city, image }) {
+function BuildingUnit({ building: { title, imageUrl, city } }) {
+  // const { title, imageUrl, city } = building;
+
   return (
     <div className='buildingUnit'>
       {/* this will call routes in App.js and create a route to BuildingDetail */}
       <Link to={`/building/${title}`}>
-        <img className='img' src={testImg} alt='{title}' />
+        <img className='img' src={imageUrl} alt='{title}' />
       </Link>
 
       <div className='subheader'>

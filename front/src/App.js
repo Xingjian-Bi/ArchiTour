@@ -10,7 +10,6 @@ import BuildingDetail from './components/buildings/BuildingDetail';
 import LoginPage from './components/pages/LoginPage';
 import SignupPage from './components/pages/SignupPage';
 
-
 function App() {
   return (
     <Router>
@@ -24,7 +23,6 @@ function App() {
             <Route path='/buildings/:title' element={<BuildingDetail />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/signup' element={<SignupPage />} />
-
           </Routes>
         </div>
       </div>

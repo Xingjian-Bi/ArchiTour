@@ -1,7 +1,8 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const myDB = require("../db/myDB.js");
+const myDB = require('../db/myDB.js');
 // const passport = require("passport");
+
 require("dotenv").config();
 
 router.post("/signin", async (req, res) => {
@@ -62,7 +63,7 @@ router.get("/architectures/:findBy/:value", async (req, res) => {
 			req.params.value
 		);
 		console.log("get architectures data from db ", archiRes);
-		res.send({ archiRes });
+		res.send( archiRes );
 	} catch (e) {
 		res.status(400).send({ err: "error-route" });
 	}
@@ -72,7 +73,7 @@ router.get("/allarchitectures", async (req, res) => {
 	try {
 		const archiRes = await myDB.getAllArchitectures();
 		console.log("get all architectures data from db ", archiRes);
-		res.send({ archiRes });
+		res.send( archiRes );
 	} catch (e) {
 		res.status(400).send({ err: e });
 	}
@@ -109,6 +110,7 @@ router.post("/deleteStop", async (req, res) => {
 	} catch (e) {
 		res.status(400).send({ err: e });
 	}
+
 });
 
 module.exports = router;
