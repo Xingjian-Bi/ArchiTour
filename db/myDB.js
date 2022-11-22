@@ -104,6 +104,28 @@ function myDB() {
 		}
 	};
 
+	myDB.musicComment = async (archiID, username, comment) => {
+		let client;
+		try {
+			client = new MongoClient(url);
+			await client.connect();
+			const db = client.db(DB_name).collection(archiCollection);
+			const res = await db.updateOne(
+				{ _id: new ObjectID(archiID) },
+				{
+					$push: {
+						comments: { username: username, comment: comment },
+					},
+				}
+			);
+			return res;
+		} catch (error) {
+			console.log(error);
+		} finally {
+			client.close();
+		}
+	};
+
 	myDB.getArchiByID = async (id) => {
 		let client;
 		try {
@@ -136,7 +158,6 @@ function myDB() {
 		}
 	};
 
-
 	myDB.addStop = async (itinerayID, archiID) => {
 		let client;
 		try {
@@ -147,7 +168,7 @@ function myDB() {
 				{ _id: new ObjectID(itinerayID) },
 				{
 					$push: {
-						stops: { archiID : archiID },
+						stops: { archiID: archiID },
 					},
 				}
 			);
@@ -161,19 +182,19 @@ function myDB() {
 	};
 
 	myDB.deleteStop = async (archiID) => {
-	  let client;
-	  try {
-		    client = new MongoClient(url);
-		    await client.connect();
-		    const db = client.db(DB_name).collection("itinerary");
-		    const res = await db.deleteOne({ _id: ObjectID(archiID) });
-		    console.log("delete architecture from itinerary", res);
-		    return res;
-	  } catch (e) {
-	    	console.log(e);
-	  } finally {
-	    	await client.close();
-	  }
+		let client;
+		try {
+			client = new MongoClient(url);
+			await client.connect();
+			const db = client.db(DB_name).collection("itinerary");
+			const res = await db.deleteOne({ _id: ObjectID(archiID) });
+			console.log("delete architecture from itinerary", res);
+			return res;
+		} catch (e) {
+			console.log(e);
+		} finally {
+			await client.close();
+		}
 	};
 
 	return myDB;
