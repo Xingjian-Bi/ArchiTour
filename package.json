@@ -5,17 +5,20 @@
   "repository": "https://github.com/Xingjian-Bi/ArchiTour.git",
   "author": "Xingjian-Bi",
   "license": "MIT",
-    "scripts": {
+  "scripts": {
     "start": "node ./node_modules/nodemon/bin/nodemon.js app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "dotenv": "^16.0.3",
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.31.10",
     "prettier": "^2.7.1"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
