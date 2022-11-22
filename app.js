@@ -2,9 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 //Used in authConfig.js
-// const session = require("express-session");
+const session = require("express-session");
 const router = require("./routes/route.js");
-const configurePassport = require("./auth/authConfig.js");
+// const configurePassport = require("./auth/authConfig.js");
 
 
 const port = process.env.PORT || 8000;
@@ -13,14 +13,14 @@ const app = express();
 
 
 
-// app.use(
-// 	session({
-// 		secret: "user name",
-// 		resave: false,
-// 		saveUninitialized: true,
-// 		cookie: { maxAge: 120000 },
-// 	})
-// );
+app.use(
+	session({
+		secret: "myapparchitrip",
+		resave: false,
+		saveUninitialized: true,
+		cookie: { maxAge: 120000 },
+	})
+);
 
 app.use(bodyParser.json());
 app.use(

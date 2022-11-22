@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function SignupPage() {
   const [username, setUsername] = useState("");
@@ -7,7 +7,7 @@ function SignupPage() {
   const [error, setError] = useState("");
 
   async function register() {
-    const response = await fetch("/registerUser", {
+    const responseRaw = await fetch("/registerUser", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -18,14 +18,18 @@ function SignupPage() {
         password: password,
       }),
     });
-    if (response.status !== 200) {
-      console.log("Can not sign up right now");
+    console.log("responseRaw.ok:", responseRaw.ok);
+    if (!responseRaw.ok) {
+      setError("Username exits");
+    }else{
+      window.location.href = "/login";
     }
-    window.location.href = "/login";
+    
   }
 
   const submitSignUp = (e) => {
     e.preventDefault();
+    setError("");
     register();
   }
 
@@ -33,6 +37,7 @@ function SignupPage() {
     <div>
       <h1>Create an account</h1>
       <form onSubmit={submitSignUp} method="post">
+      {error !== "" ? <div className="alert"> {error} </div> : ""}
         <div>
           <label className="form-label" htmlFor="username">
             Username

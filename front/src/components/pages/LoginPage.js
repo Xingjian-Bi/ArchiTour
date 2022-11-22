@@ -8,10 +8,9 @@ function LoginPage() {
   const [error, setError] = useState("");
 
   async function login() {
-    const response = await fetch("/signin", {
+    const responseRaw = await fetch("/signin", {
       method: "POST",
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -19,14 +18,19 @@ function LoginPage() {
         password: password,
       }),
     });
-    if (response.status !== 200) {
-      console.log("Incorrect password");
+    // console.log("responseRaw.ok:", responseRaw.ok);
+    if (!responseRaw.ok) {
+      setError("Incorrect username or password");
+      // console.log("Incorrect password ?? ");
+    } else {
+      window.location.href = "/";
+      // console.log("Correct password !! ");
     }
-    window.location.href = "/";
   }
 
   const submitLogin = (e) => {
     e.preventDefault();
+    setError("");
     login();
   };
 
@@ -34,6 +38,7 @@ function LoginPage() {
     <div>
       <h1>Sign in</h1>
       <form onSubmit={submitLogin} method="post">
+        {error !== "" ? <div className="alert"> {error} </div> : ""}
         <div>
           <label className="form-label" htmlFor="username">
             Username
