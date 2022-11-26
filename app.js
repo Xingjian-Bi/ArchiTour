@@ -6,12 +6,8 @@ const session = require("express-session");
 const router = require("./routes/route.js");
 // const configurePassport = require("./auth/authConfig.js");
 
-
 const port = process.env.PORT || 8000;
 const app = express();
-
-
-
 
 app.use(
 	session({
@@ -40,7 +36,6 @@ app.use(express.static(path.join(__dirname, "front/build")));
 // });
 
 // configurePassport(app);
-
 
 //How do we start listening to the server
 app.listen(port, () => console.log(`server started on port ${port}`));

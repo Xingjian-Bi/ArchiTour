@@ -1,6 +1,6 @@
-export const SHOW_BUILDINGS = 'SHOW_BUILDINGS';
-export const SEARCH_BUILDINGS = 'SEARCH_BUILDINGS';
-export const GET_BUILDING = 'GET_USER';
+export const SHOW_BUILDINGS = "SHOW_BUILDINGS";
+export const SEARCH_BUILDINGS = "SEARCH_BUILDINGS";
+export const GET_BUILDING = "GET_USER";
 // export const CLEAR_USERS = 'CLEAR_USERS';
 // export const GET_REPOS = 'GET_REPOS';
 // export const SET_LOADING = 'SET_LOADING';
