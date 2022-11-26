@@ -1,15 +1,14 @@
-import React, { useEffect } from 'react';
-import testImg from './test.jpeg';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function BuildingUnit({ building: { title, imageUrl, city } }) {
-  // const { title, imageUrl, city } = building;
-
+  console.log(title);
   return (
     <div className='buildingUnit'>
       {/* this will call routes in App.js and create a route to BuildingDetail */}
       <Link to={`/building/${title}`}>
-        <img className='img' src={imageUrl} alt='{title}' />
+        more
+        {/* <img className='img' src={imageUrl} alt='{title}' /> */}
       </Link>
 
       <div className='subheader'>
@@ -19,11 +18,5 @@ function BuildingUnit({ building: { title, imageUrl, city } }) {
     </div>
   );
 }
-
-BuildingUnit.defaultProps = {
-  title: 'Disney Concert Hall',
-  city: 'Los Angeles, CA',
-  image: testImg,
-};
 
 export default BuildingUnit;

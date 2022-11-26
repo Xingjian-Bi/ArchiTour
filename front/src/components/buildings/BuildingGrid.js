@@ -6,12 +6,9 @@ import BuildingUnit from '../buildings/BuildingUnit';
 function BuildingGrid() {
   const archiContext = useContext(ArchiContext);
 
-  // NEEDS TO BE MODIFIED
-  archiContext.showBuildings();
-
   // import building from archiContext
   const { buildings } = archiContext;
-  console.log(buildings);
+  // console.log(buildings);
 
   return (
     <div>

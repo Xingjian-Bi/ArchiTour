@@ -61,28 +61,26 @@ router.post("/registerUser", async (req, res) => {
 });
 
 //route for get all architectures
-router.get("/architectures/:findBy/:value", async (req, res) => {
-	try {
-		const archiRes = await myDB.getArchitectures(
-			req.params.findBy,
-			req.params.value
-		);
-		console.log("get architectures data from db ", archiRes);
-		res.send(archiRes);
-	} catch (e) {
-		res.status(400).send({ err: "error-route" });
-	}
+
+router.get('/architectures/:value', async (req, res) => {
+  try {
+    const archiRes = await myDB.getArchitectures(req.params.value);
+    console.log(req.params.value);
+    console.log('get architectures data from db ', archiRes);
+    res.send(archiRes);
+  } catch (e) {
+    res.status(400).send({ err: 'error-route' });
+  }
 });
 
-router.get("/allarchitectures", async (req, res) => {
-	try {
-		const archiRes = await myDB.getAllArchitectures();
-		console.log("get all architectures data from db ", archiRes);
-		res.send(archiRes);
-	} catch (e) {
-		res.status(400).send({ err: e });
-	}
-});
+router.get('/allarchitectures', async (req, res) => {
+  try {
+    const archiRes = await myDB.getAllArchitectures();
+    // console.log('get all architectures data from db ', archiRes);
+    res.send(archiRes);
+  } catch (e) {
+    res.status(400).send({ err: e });
+  }
 
 //route for add comment
 router.post("/archiComment", async (req, res) => {
@@ -108,6 +106,7 @@ router.get("/allItinerary", async (req, res) => {
 	} catch (e) {
 		res.status(400).send({ err: e });
 	}
+
 });
 
 router.post("/addItinerary", async (req, res) => {

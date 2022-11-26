@@ -1,20 +1,9 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import ArchiContext from './archiContext';
 import ArchiReducer from './archiReducer';
 import { SHOW_BUILDINGS, SEARCH_BUILDINGS, GET_BUILDING } from '../types';
 
 const ArchiState = (props) => {
-  // NEEDS TO BE MODIFIED
-  //   const initialize = async (text) => {
-  //     const rawData = await fetch('/allarchitectures');
-  //     const res = await rawData.json();
-  //     console.log(res);
-  //     return res;
-  //   };
-  // NEEDS TO BE MODIFIED
-  //   const buildinglist = initialize();
-  //   console.log(buildinglist);
-  // NEEDS TO BE MODIFIED
   const initialState = {
     // buildings: buildinglist,
     buildings: [],
@@ -22,7 +11,7 @@ const ArchiState = (props) => {
   };
 
   const [state, dispatch] = useReducer(ArchiReducer, initialState);
-  // NEEDS TO BE MODIFIED
+
   // Show Buildings
   const showBuildings = async () => {
     const rawData = await fetch('/allarchitectures');
@@ -33,9 +22,14 @@ const ArchiState = (props) => {
     });
   };
 
+  useEffect(() => {
+    showBuildings();
+  }, []);
+
   // Search Buildings
   const searchBuildings = async (text) => {
-    const rawData = await fetch('/allarchitectures');
+    console.log(text);
+    const rawData = await fetch(`/architectures/${text}`);
     const res = await rawData.json();
     dispatch({
       type: SEARCH_BUILDINGS,
@@ -44,13 +38,14 @@ const ArchiState = (props) => {
   };
 
   // Get Building
-  const getBuilding = async (username) => {
+  const getBuilding = async (title) => {
+    console.log('fuction getting called', title);
     // Needs to get the specific building
-    const rawData = await fetch('/allarchitectures');
+    const rawData = await fetch(`/architectures/${title}`);
     const res = await rawData.json();
     dispatch({
       type: GET_BUILDING,
-      payload: res.data,
+      payload: res[0], //因为res是个list但是只有一个value?
     });
   };
 
