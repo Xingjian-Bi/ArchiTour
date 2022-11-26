@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
-
+import React, { useState, useContext } from 'react';
+import ArchiContext from '../../context/archiTour/archiContext';
 function Search() {
+  const archiContext = useContext(ArchiContext);
   const [text, setText] = useState('');
+
   const onChange = (e) => {
     setText(e.target.value);
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    this.setText('');
+    console.log(text);
+    archiContext.searchBuildings(text);
+    setText('');
   };
 
   return (
