@@ -1,4 +1,4 @@
-import { SHOW_BUILDINGS, SEARCH_BUILDINGS, GET_BUILDING, GET_ITINERARY } from "../types";
+import { SHOW_BUILDINGS, SEARCH_BUILDINGS, GET_BUILDING, GET_ITINERARY, SET_ITINERARY, SET_ITINERARYID, SET_ITINERARYINDEX } from "../types";
 
 // export default (state, action) => {
 export default function foo(state, action) {
@@ -23,6 +23,23 @@ export default function foo(state, action) {
 				...state,
 				itineraries: action.payload,
 			};
+		case SET_ITINERARY:
+			return {
+				...state,
+				itinerary: action.payload,
+			};
+		case SET_ITINERARYID:
+			return {
+				...state,
+				itineraryID: action.payload,
+			};
+		case SET_ITINERARYINDEX:
+			return {
+				...state,
+				itineraryIndex: action.payload,
+			};
+
+
 		default:
 			return state;
 	}
