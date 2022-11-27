@@ -8,14 +8,13 @@ import ArchiContext from "../../context/archiTour/archiContext";
 
 function AddItinerary({ reloadData }) {
 	const archiContext = useContext(ArchiContext);
-	const { addItinerary} = archiContext;
+	const { addItinerary } = archiContext;
 
 	const addTrip = () => {
 		addItinerary("harry2");
 		reloadData();
 		console.log("reload Data");
 	}
-
 
 
 	return (

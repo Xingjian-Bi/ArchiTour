@@ -181,7 +181,16 @@ function myDB() {
 		}
 	};
 
-	myDB.addStop = async (itinerayID, archiID) => {
+	myDB.addStop = async (
+		itinerayID,
+		imageUrl,
+		title,
+		designer,
+		address,
+		phone,
+		openTime,
+		closeTime
+	) => {
 		let client;
 		try {
 			client = new MongoClient(url);
@@ -191,11 +200,19 @@ function myDB() {
 				{ _id: new ObjectID(itinerayID) },
 				{
 					$push: {
-						stops: { archiID: archiID },
+						stops: {
+							imageUrl: imageUrl,
+							title: title,
+							designer: designer,
+							address: address,
+							phone: phone,
+							openTime: openTime,
+							closeTime: closeTime,
+						},
 					},
 				}
 			);
-			console.log("add architecture to itinerary", res);
+			console.log("addStop: add stops to itinerary", res);
 			return res;
 		} catch (e) {
 			console.log(e);
