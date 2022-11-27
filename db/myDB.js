@@ -9,6 +9,7 @@ function myDB() {
 	const myDB = {};
 	const usersCollection = "users";
 	const archiCollection = "architectures";
+	const tripCollection = "itinerary";
 
 	myDB.findUserName = async (username) => {
 		let client;
@@ -76,7 +77,8 @@ function myDB() {
 			const res = await db
 				.find({
 					$or: [query1, query2],
-				}).toArray();
+				})
+				.toArray();
 			console.log("list of all architectures**", res);
 			return res;
 		} catch (e) {
@@ -142,14 +144,35 @@ function myDB() {
 		}
 	};
 
-	myDB.addItinerary = async (itineray) => {
+	myDB.getItinerary = async () => {
 		let client;
 		try {
 			client = new MongoClient(url);
 			await client.connect();
-			const db = client.db(DB_name).collection("itinerary");
-			const res = await db.insertOne(itineray);
-			console.log("get architecture by id", res);
+			const db = client.db(DB_name).collection(tripCollection);
+			let query = {};
+			const res = await db.find(query).sort({ createTime: 1 }).toArray();
+			console.log("get of all Itineraries from db", res);
+			return res;
+		} catch (e) {
+			console.log(e);
+		} finally {
+			await client.close();
+		}
+	};
+
+	myDB.addItinerary = async (username) => {
+		let client;
+		try {
+			var createTime = new Date();
+			client = new MongoClient(url);
+			await client.connect();
+			const db = client.db(DB_name).collection(tripCollection);
+			const res = await db.insertOne({
+				username: username,
+				createTime: createTime,
+			});
+			console.log("added one Itinerary", res);
 			return res;
 		} catch (e) {
 			console.log(e);
@@ -163,7 +186,7 @@ function myDB() {
 		try {
 			client = new MongoClient(url);
 			await client.connect();
-			const db = client.db(DB_name).collection("itinerary");
+			const db = client.db(DB_name).collection(tripCollection);
 			const res = await db.updateOne(
 				{ _id: new ObjectID(itinerayID) },
 				{
@@ -186,7 +209,7 @@ function myDB() {
 		try {
 			client = new MongoClient(url);
 			await client.connect();
-			const db = client.db(DB_name).collection("itinerary");
+			const db = client.db(DB_name).collection(tripCollection);
 			const res = await db.deleteOne({ _id: ObjectID(archiID) });
 			console.log("delete architecture from itinerary", res);
 			return res;

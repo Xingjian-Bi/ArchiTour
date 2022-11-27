@@ -10,10 +10,12 @@ function Itinerary({ day }) {
 		<button className="button">Day {day}</button>
 		</div>
 	);
+
 }
 
 Itinerary.propTypes = {
-	day: PropTypes.string.isRequired,
+	day: PropTypes.number.isRequired,
+	// reloadData: PropTypes.func.isRequired,
 };
 
 export default Itinerary;

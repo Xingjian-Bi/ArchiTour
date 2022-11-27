@@ -1,12 +1,14 @@
 import React, { useEffect, useReducer } from "react";
 import ArchiContext from "./archiContext";
 import ArchiReducer from "./archiReducer";
-import { SHOW_BUILDINGS, SEARCH_BUILDINGS, GET_BUILDING } from "../types";
+import { SHOW_BUILDINGS, SEARCH_BUILDINGS, GET_BUILDING, GET_ITINERARY} from "../types";
 
 const ArchiState = (props) => {
 	const initialState = {
 		buildings: [],
 		building: {},
+		itineraries: [],
+		stops: [],
 	};
 
 	const [state, dispatch] = useReducer(ArchiReducer, initialState);
@@ -48,14 +50,43 @@ const ArchiState = (props) => {
 		});
 	};
 
+	const addItinerary = async (username) => {
+		const responseRaw = fetch("/addItinerary", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				username: username,
+			}),
+		});
+		console.log("responseRaw", responseRaw);
+	}
+
+	const getItinerary = async () => {
+		const rawData = await fetch("/allItinerary");
+		const res = await rawData.json();
+		console.log("getItinerary res", res);
+		dispatch({
+			type: GET_ITINERARY,
+			payload: res,
+		});
+	};
+
+
 	return (
 		<ArchiContext.Provider
 			value={{
 				buildings: state.buildings,
 				building: state.building,
+				itineraries: state.itineraries,
+				stops: state.stops,
 				showBuildings,
 				searchBuildings,
 				getBuilding,
+				addItinerary,
+				getItinerary,
 			}}
 		>
 			{props.children}
