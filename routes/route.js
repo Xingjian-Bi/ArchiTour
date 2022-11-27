@@ -60,7 +60,6 @@ router.post("/registerUser", async (req, res) => {
 });
 
 //route for get all architectures
-
 router.get("/architectures/:value", async (req, res) => {
 	try {
 		const archiRes = await myDB.getArchitectures(req.params.value);
@@ -99,7 +98,7 @@ router.post("/archiComment", async (req, res) => {
 
 router.get("/allItinerary", async (req, res) => {
 	try {
-		const itineraryRes = await myDB.getItinerary(req.body);
+		const itineraryRes = await myDB.getItinerary();
 		console.log("added an itinerary from db ", itineraryRes);
 		res.send(itineraryRes);
 	} catch (e) {
@@ -109,7 +108,7 @@ router.get("/allItinerary", async (req, res) => {
 
 router.post("/addItinerary", async (req, res) => {
 	try {
-		const addRes = await myDB.addItinerary(req.body);
+		const addRes = await myDB.addItinerary(req.body.username);
 		console.log("added an itinerary from db ", addRes);
 		res.send({ status: "ok" });
 	} catch (e) {
