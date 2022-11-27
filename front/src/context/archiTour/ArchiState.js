@@ -44,6 +44,7 @@ const ArchiState = (props) => {
 		// Needs to get the specific building
 		const rawData = await fetch(`/architectures/${title}`);
 		const res = await rawData.json();
+		// console.log("getBuilding" )
 		dispatch({
 			type: GET_BUILDING,
 			payload: res[0], //因为res是个list但是只有一个value?
@@ -74,6 +75,34 @@ const ArchiState = (props) => {
 		});
 	};
 
+	const addStop = async (itinerayID,
+		imageUrl,
+		title,
+		designer,
+		address,
+		phone,
+		openTime,
+		closeTime) => {
+		const responseRaw = fetch("/addStop", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				itinerayID: itinerayID,
+				imageUrl: imageUrl,
+				title: title,
+				designer: designer,
+				address: address,
+				phone: phone,
+				openTime: openTime,
+				closeTime: closeTime,
+			}),
+		});
+		console.log("responseRaw", responseRaw);
+	}
+
 
 	return (
 		<ArchiContext.Provider
@@ -87,6 +116,7 @@ const ArchiState = (props) => {
 				getBuilding,
 				addItinerary,
 				getItinerary,
+				addStop,
 			}}
 		>
 			{props.children}

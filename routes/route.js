@@ -118,7 +118,16 @@ router.post("/addItinerary", async (req, res) => {
 
 router.post("/addStop", async (req, res) => {
 	try {
-		const addRes = await myDB.addStop(req.body.itinerayID, req.body.archiID);
+		const addRes = await myDB.addStop(
+			req.body.itinerayID,
+			req.body.imageUrl,
+			req.body.title,
+			req.body.designer,
+			req.body.address,
+			req.body.phone,
+			req.body.openTime,
+			req.body.closeTime
+		);
 		console.log("add stop in itineray from db ", addRes);
 		res.status(200).json({ info: "ok" });
 	} catch (e) {
