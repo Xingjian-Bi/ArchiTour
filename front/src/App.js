@@ -9,6 +9,7 @@ import Home from "./components/pages/Home";
 import BuildingDetail from "./components/buildings/BuildingDetail";
 import LoginPage from "./components/pages/LoginPage";
 import SignupPage from "./components/pages/SignupPage";
+import Trip from "./components/trips/Trip";
 
 import ArchiState from "./context/archiTour/ArchiState";
 
@@ -26,6 +27,7 @@ function App() {
 							<Route path='/building/:title' element={<BuildingDetail />} />
 							<Route path='/login' element={<LoginPage />} />
 							<Route path='/signup' element={<SignupPage />} />
+							<Route path='/myTrips' element={<Trip />} />
 						</Routes>
 					</div>
 				</div>

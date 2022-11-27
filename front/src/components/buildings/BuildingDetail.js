@@ -18,19 +18,19 @@ const BuildingDetail = () => {
 		building;
 
 	return (
-		<div className='building'>
-			<div className='left'>
+		<div className="building">
+			<div className="left">
 				<h2>{title}</h2>
-				<img src={imageUrl} alt='test' />
+				<img src={imageUrl} alt="test" />
 				<h3>Description:</h3>
 				<p>{description}</p>
 			</div>
-			<div className='gap'></div>
-			<div className='right'>
+			<div className="gap"></div>
+			<div className="right">
 				{/* <Detail /> */}
-				<div className='building-detail'>
+				<div className="building-detail">
 					<h3>{city}</h3>
-					<div className='detailInfo'>
+					<div className="detailInfo">
 						<h4>Designer: {designer}</h4>
 						<h4>Address: {address}</h4>
 						<h4>Phone: {phone}</h4>

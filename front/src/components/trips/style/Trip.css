@@ -1,0 +1,16 @@
+.trip {
+	display: flex;
+}
+.trip .left {
+	max-width: 50%;
+	margin: 0;
+	padding-left: 8%;
+}
+.trip .gap {
+	width: 100px;
+	margin: 0;
+}
+.trip .right {
+	max-width: 100%;
+	margin: 0;
+}
