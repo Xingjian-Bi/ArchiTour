@@ -1,8 +1,10 @@
 import React, { useState, useContext } from "react";
 import ArchiContext from "../../context/archiTour/archiContext";
 import "./style/SearchBuilding.css";
+import PropTypes from "prop-types";
 
-function SearchBuilding() {
+
+function SearchBuilding({ itineraryID, reloadData}) {
 	const archiContext = useContext(ArchiContext);
 	const [text, setText] = useState("");
 	const { addStop } = archiContext;
@@ -23,7 +25,7 @@ function SearchBuilding() {
 		console.log("on submit", res[0].imageUrl);
 		console.log(res[0].title);
 		// const { building } = archiContext;
-		addStop("6382f17f539eb8bab2914616",
+		addStop(itineraryID,
 				res[0].imageUrl,
 				res[0].title,
 				res[0].designer,
@@ -37,6 +39,7 @@ function SearchBuilding() {
 		// console.log("city", city);
 
 		setText("");
+		await reloadData();
 	};
 
 	return (
@@ -60,6 +63,9 @@ function SearchBuilding() {
 	);
 }
 
-SearchBuilding.propTypes = {};
+SearchBuilding.propTypes = {
+	itineraryID: PropTypes.string.isRequired,
+	reloadData: PropTypes.func.isRequired,
+};
 
 export default SearchBuilding;

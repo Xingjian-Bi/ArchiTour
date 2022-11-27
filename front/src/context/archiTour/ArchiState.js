@@ -1,14 +1,16 @@
 import React, { useEffect, useReducer } from "react";
 import ArchiContext from "./archiContext";
 import ArchiReducer from "./archiReducer";
-import { SHOW_BUILDINGS, SEARCH_BUILDINGS, GET_BUILDING, GET_ITINERARY} from "../types";
+import { SHOW_BUILDINGS, SEARCH_BUILDINGS, GET_BUILDING, GET_ITINERARY, SET_ITINERARY, SET_ITINERARYINDEX, SET_ITINERARYID} from "../types";
 
 const ArchiState = (props) => {
 	const initialState = {
 		buildings: [],
 		building: {},
 		itineraries: [],
-		stops: [],
+		itinerary: [],
+		itineraryIndex: 0,
+		itineraryID: "",
 	};
 
 	const [state, dispatch] = useReducer(ArchiReducer, initialState);
@@ -75,6 +77,31 @@ const ArchiState = (props) => {
 		});
 	};
 
+	const setItineraryIndex = async (index) => {
+		const res = index;
+		dispatch({
+			type: SET_ITINERARYINDEX,
+			payload: res,
+		});
+	}
+
+	const setItineraryID = async (id) => {
+		const res = id;
+		dispatch({
+			type: SET_ITINERARYID,
+			payload: res,
+		});
+	}
+
+	const setItinerary = async (obj) => {
+		const res = obj;
+		dispatch({
+			type: SET_ITINERARY,
+			payload: res,
+		});
+	}
+
+
 	const addStop = async (itinerayID,
 		imageUrl,
 		title,
@@ -110,13 +137,18 @@ const ArchiState = (props) => {
 				buildings: state.buildings,
 				building: state.building,
 				itineraries: state.itineraries,
-				stops: state.stops,
+				itinerary: state.itinerary,
+				itineraryIndex: state.itineraryIndex,
+				itineraryID: state.itineraryID,
 				showBuildings,
 				searchBuildings,
 				getBuilding,
 				addItinerary,
 				getItinerary,
+				setItinerary,
 				addStop,
+				setItineraryIndex,
+				setItineraryID,
 			}}
 		>
 			{props.children}
