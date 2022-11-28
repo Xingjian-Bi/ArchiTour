@@ -77,6 +77,20 @@ const ArchiState = (props) => {
 		});
 	};
 
+	const deleteItinerary = async (id) => {
+		const responseRaw = fetch("/deleteItinerary", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				id: id,
+			}),
+		});
+		console.log("Delete Itinerary responseRaw", responseRaw);
+	}
+
 	const setItineraryIndex = async (index) => {
 		const res = index;
 		dispatch({
@@ -84,6 +98,7 @@ const ArchiState = (props) => {
 			payload: res,
 		});
 	}
+
 
 	const setItineraryID = async (id) => {
 		const res = id;
@@ -161,6 +176,7 @@ const ArchiState = (props) => {
 				addItinerary,
 				getItinerary,
 				setItinerary,
+				deleteItinerary,
 				addStop,
 				deleteStop,
 				setItineraryIndex,

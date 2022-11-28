@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from "react";
 
 import SearchBuilding from "./SearchBuilding";
 import Stop from "./Stop";
-import ItineraryList from "./ItineraryList";
+import Itinerary from "./Itinerary";
 import AddItinerary from "./AddItinerary";
 import "./style/Trip.css";
 
@@ -53,7 +53,6 @@ function Trip() {
 			setItinerary(itineraries[itineraryIndex].stops);
 			setItineraryID(itineraries[itineraryIndex]._id);
 		}
-
 	}, [itineraries]);
 
 	const reloadData = async () => {
@@ -75,7 +74,21 @@ function Trip() {
 					<h3>My Trip</h3>
 					<h3>Day {itineraryIndex + 1}</h3>
 					<br />
-					<ItineraryList itineraries={itineraries} />
+					{/*<ItineraryList itineraries={itineraries} />*/}
+					{itineraries === undefined || itineraries.length === 0 ? (
+						<div>No itineraries </div>
+					) : (
+						<div>
+							{itineraries.map((itinerary, i) => (
+								<Itinerary
+									key={itinerary._id}
+									day={i + 1}
+									reloadData={reloadData}
+									itineraryID={itinerary._id}
+								/>
+							))}
+						</div>
+					)}
 					<AddItinerary reloadData={reloadData} />
 				</div>
 				<div className="gap"></div>

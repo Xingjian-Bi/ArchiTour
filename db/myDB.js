@@ -181,6 +181,22 @@ function myDB() {
 		}
 	};
 
+	myDB.deleteItinerary = async (id) => {
+		let client;
+		try {
+			client = new MongoClient(url);
+			await client.connect();
+			const db = client.db(DB_name).collection(tripCollection);
+			const res = await db.deleteOne({ _id: ObjectID(id) });
+			console.log("delete 1 itinerary", res);
+			return res;
+		} catch (e) {
+			console.log(e);
+		} finally {
+			await client.close();
+		}
+	};
+
 	myDB.addStop = async (
 		itinerayID,
 		imageUrl,
@@ -212,7 +228,7 @@ function myDB() {
 					},
 				}
 			);
-			console.log("addStop: add stops to itinerary", res);
+			console.log("addStop: add 1 stop to itinerary", res);
 			return res;
 		} catch (e) {
 			console.log(e);
@@ -238,7 +254,7 @@ function myDB() {
 					},
 				}
 			);
-			console.log("delete architecture from itinerary", res);
+			console.log("*******delete 1 stop from itinerary", res);
 			return res;
 		} catch (e) {
 			console.log(e);

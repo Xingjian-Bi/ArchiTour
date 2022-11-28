@@ -116,6 +116,16 @@ router.post("/addItinerary", async (req, res) => {
 	}
 });
 
+router.post("/deleteItinerary", async (req, res) => {
+	try {
+		const delRes = await myDB.deleteItinerary(req.body.id);
+		console.log("deleted 1 itineray from db ", delRes);
+		res.send({ status: "ok" });
+	} catch (e) {
+		res.status(400).send({ err: e });
+	}
+});
+
 router.post("/addStop", async (req, res) => {
 	try {
 		const addRes = await myDB.addStop(
