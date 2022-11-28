@@ -1,17 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import logo from "./logo192.png";
+// import logo from "./logo192.png";
 
 function Navbar({ icon, title }) {
 	return (
 		<nav className='navbar bg-primary'>
 			<h1>
-				<img
+				{/* <img
 					src={logo}
 					alt='logo'
 					style={{ width: "20px", margin: "auto", display: "block" }}
-				/>
+				/> */}
 				{title}
 			</h1>
 			<ul>
@@ -30,13 +29,6 @@ function Navbar({ icon, title }) {
 
 Navbar.defaultProps = {
 	title: "ArchiTour",
-	// icon: 'fab fa-github',
-};
-
-// Type checking
-Navbar.propTypes = {
-	title: PropTypes.string.isRequired,
-	// icon: PropTypes.string.isRequired,
 };
 
 export default Navbar;

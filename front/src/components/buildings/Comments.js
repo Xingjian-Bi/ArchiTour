@@ -1,24 +1,25 @@
-import React, { useState } from "react";
-function Comments() {
+import React, { useState, useContext } from "react";
+import PropTypes from "prop-types";
+import ArchiContext from "../../context/archiTour/archiContext";
+
+function Comments({ reloadData }) {
+	const archiContext = useContext(ArchiContext);
+	const { building, user, addComment } = archiContext;
+
+	const { comments } = building;
+
 	const [text, setText] = useState("");
+	const onChange = (e) => {
+		setText(e.target.value);
+	};
 
-	async function addComent() {
-		const responseRaw = await fetch("/signin", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				text: text,
-			}),
-		});
-		console.log("responseRaw.ok:", responseRaw.ok);
-	}
-
-	const onSubmit = (e) => {
+	const onSubmit = async (e) => {
 		e.preventDefault();
-		addComent();
+		console.log(text, user);
+		addComment(building._id, user.user, text);
+		console.log(comments);
 		setText("");
+		await reloadData();
 	};
 
 	// needs to show all comments
@@ -26,6 +27,22 @@ function Comments() {
 		<div>
 			<div className='comments'>
 				<h3>Comments:</h3>
+				{comments === undefined ? (
+					<div></div>
+				) : (
+					<div>
+						{comments.map((comment) => (
+							<div key={comment.comment}>
+								<div>{comment.comment}</div>
+								<div>
+									{comment.username === null || comment.username === undefined
+										? "Anonymous User"
+										: comment.username}
+								</div>
+							</div>
+						))}
+					</div>
+				)}
 			</div>
 			<div className='addcomments'>
 				<form className='form' onSubmit={onSubmit}>
@@ -34,9 +51,7 @@ function Comments() {
 						name='text'
 						placeholder='Add Comments Here'
 						value={text}
-						onChange={(e) => {
-							setText(e.target.value);
-						}}
+						onChange={onChange}
 					/>
 					<input type='submit' value='Add' className='btn btn-dark btn-block' />
 				</form>
@@ -44,4 +59,7 @@ function Comments() {
 		</div>
 	);
 }
+Comments.propTypes = {
+	reloadData: PropTypes.func.isRequired,
+};
 export default Comments;

@@ -414,8 +414,8 @@ table th {
 }
 .buildingUnit img {
 	object-fit: cover;
-	width: 0.9rem;
-	height: 0.8rem;
+	/* width: 40vb;
+	height: 30vb; */
 }
 
 /* subheader */

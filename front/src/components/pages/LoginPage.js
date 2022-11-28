@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+// import ArchiContext from "../../context/archiTour/archiContext";
 import { Link } from "react-router-dom";
+
 // import Navbar from '../layout/Navbar';
 
 function LoginPage() {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
-
+	// const archiContext = useContext(ArchiContext);
+	// const history = useHistory();
 	async function login() {
 		const responseRaw = await fetch("/signin", {
 			method: "POST",
@@ -23,7 +26,11 @@ function LoginPage() {
 			setError("Incorrect username or password");
 			// console.log("Incorrect password ?? ");
 		} else {
+			// await console.log(responseRaw);
+			// await archiContext.getUser();
+			// console.log(archiContext.user);
 			window.location.href = "/";
+
 			// console.log("Correct password !! ");
 		}
 	}

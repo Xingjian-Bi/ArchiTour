@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import ArchiContext from "../../context/archiTour/archiContext";
 import BuildingUnit from "../buildings/BuildingUnit";
 
@@ -7,8 +7,11 @@ function BuildingGrid() {
 	const archiContext = useContext(ArchiContext);
 
 	// import building from archiContext
-	const { buildings } = archiContext;
+	const { buildings, getUser } = archiContext;
 	// console.log(buildings);
+	useEffect(() => {
+		getUser();
+	}, []);
 
 	return (
 		<div>

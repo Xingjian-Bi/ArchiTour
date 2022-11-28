@@ -17,7 +17,7 @@ function myDB() {
 			await client.connect();
 			const db = client.db(DB_name).collection(usersCollection);
 			const user = await db.findOne({ username: username });
-			console.log("find user name", user);
+			// console.log("find user name", user);
 			return user;
 		} catch (e) {
 			console.log(e);
@@ -76,7 +76,8 @@ function myDB() {
 			const res = await db
 				.find({
 					$or: [query1, query2],
-				}).toArray();
+				})
+				.toArray();
 			console.log("list of all architectures**", res);
 			return res;
 		} catch (e) {
@@ -104,14 +105,15 @@ function myDB() {
 		}
 	};
 
-	myDB.musicComment = async (archiID, username, comment) => {
+	myDB.archiComment = async (archiID, username, comment) => {
 		let client;
 		try {
 			client = new MongoClient(url);
+			console.log("test db here", archiID, username, comment);
 			await client.connect();
 			const db = client.db(DB_name).collection(archiCollection);
 			const res = await db.updateOne(
-				{ _id: new ObjectID(archiID) },
+				{ _id: archiID },
 				{
 					$push: {
 						comments: { username: username, comment: comment },

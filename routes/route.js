@@ -29,6 +29,17 @@ router.get("/getUsername", (req, res) => {
 	res.send({ user: req.session.user });
 });
 
+router.get("/getUser/:value", async (req, res) => {
+	try {
+		const userRes = await myDB.findUserName(req.params.value);
+		console.log(req.params.value);
+		console.log("1111111get user data from db ", userRes);
+		res.send(userRes);
+	} catch (e) {
+		res.status(400).send({ err: "error-route" });
+	}
+});
+
 // router.get("/logout", (req, res) => {
 // 	req.logout();
 // 	res.redirect("/signin");
@@ -84,10 +95,11 @@ router.get("/allarchitectures", async (req, res) => {
 
 //route for add comment
 router.post("/archiComment", async (req, res) => {
+	console.log("test router", req.body.archiID, req.body.user, req.body.comment);
 	try {
 		const commentRes = await myDB.archiComment(
 			req.body.archiID,
-			req.session.user,
+			req.body.user,
 			req.body.comment
 		);
 		console.log("Comment added", commentRes);

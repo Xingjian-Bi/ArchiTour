@@ -9,7 +9,7 @@ function Search() {
 	};
 	const onSubmit = (e) => {
 		e.preventDefault();
-		console.log(text);
+		// console.log(text);
 		archiContext.searchBuildings(text);
 		setText("");
 	};
