@@ -31,3 +31,4 @@ app.use(express.static(path.join(__dirname, "front/build")));
 
 //How do we start listening to the server
 app.listen(port, () => console.log(`server started on port ${port}`));
+ 
