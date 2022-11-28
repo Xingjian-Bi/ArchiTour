@@ -1,22 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Stop from "./Stop";
+// import React from "react";
+// import PropTypes from "prop-types";
+// import Stop from "./Stop";
 
-const StopList = ({ stops }) => {
+// const StopList = ({ stops }) => {
 
-	return (
-		<div>
-			<div>
-				{stops.map((stop, i) => (
-					<Stop key={i} stop={stop} />
-				))}
-			</div>
-		</div>
-	);
-};
+// 	return (
+// 		<div>
+// 			<div>
+// 				{stops.map((stop, i) => (
+// 					<Stop key={i} stop={stop} />
+// 				))}
+// 			</div>
+// 		</div>
+// 	);
+// };
 
-StopList.propTypes = {
-	stops: PropTypes.array.isRequired,
-};
+// StopList.propTypes = {
+// 	stops: PropTypes.array.isRequired,
+// };
 
-export default StopList;
+// export default StopList;
