@@ -1,11 +1,9 @@
 export const SHOW_BUILDINGS = "SHOW_BUILDINGS";
 export const SEARCH_BUILDINGS = "SEARCH_BUILDINGS";
-
 export const GET_BUILDING = "GET_BUILDING";
 export const GET_USER = "GET_USER";
 // export const GET_COMMENT = "GET_COMMENT";
 // export const ADD_COMMENT = "ADD_COMMENT";
-export const GET_BUILDING = "GET_USER";
 export const GET_ITINERARY = "GET_ITINERARY";
 export const SET_ITINERARY = "SET_ITINERARY";
 export const SET_ITINERARYID = "SET_ITINERARYID";
