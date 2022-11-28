@@ -216,6 +216,7 @@ const ArchiState = (props) => {
 				getBuilding,
 				getUser,
 				addComment,
+
 				addItinerary,
 				getItinerary,
 				setItinerary,

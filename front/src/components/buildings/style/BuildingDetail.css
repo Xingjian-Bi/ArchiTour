@@ -1,0 +1,25 @@
+/* building */
+.building {
+	display: flex;
+}
+.building .detailInfo {
+	padding: 0.5rem;
+	border: #ccc 1px dotted;
+	margin: 0.7rem 0;
+}
+.building .left {
+	max-width: 700px;
+	margin: 0;
+}
+.building .verticalGap {
+	width: 30px;
+	margin: 0;
+}
+.building .right {
+	max-width: 370px;
+	margin: 0;
+}
+.building .horizontalGap {
+	height: 20px;
+	margin: 0;
+}

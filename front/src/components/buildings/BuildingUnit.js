@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function BuildingUnit({ building: { title, imageUrl, city } }) {
 	// console.log(title);
@@ -16,5 +17,7 @@ function BuildingUnit({ building: { title, imageUrl, city } }) {
 		</div>
 	);
 }
-
+BuildingUnit.propTypes = {
+	building: PropTypes.object.isRequired,
+};
 export default BuildingUnit;

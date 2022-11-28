@@ -4,13 +4,13 @@
 .trip .left {
 	max-width: 60%;
 	margin: 0;
-	padding-left: 8%;
+	padding-left: 2%;
 }
 .trip .gap {
 	width: 100px;
 	margin: 0;
 }
 .trip .right {
-	max-width: 80%;
+	max-width: 70%;
 	margin: 0;
 }

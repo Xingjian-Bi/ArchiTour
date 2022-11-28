@@ -70,10 +70,10 @@ function Trip() {
 	return (
 		<div>
 			<SearchBuilding itineraryID={itineraryID} reloadData={reloadData} />
-			<div className="trip">
-				<div className="left">
+			<div className='trip'>
+				<div className='left'>
 					<h3>My Trip</h3>
-					<h3>Day {itineraryIndex + 1}</h3>
+					<h4>Day {itineraryIndex + 1}</h4>
 					<br />
 					{itineraries === undefined || itineraries.length === 0 ? (
 						<div>No itineraries </div>
@@ -91,8 +91,8 @@ function Trip() {
 					)}
 					<AddItinerary reloadData={reloadData} />
 				</div>
-				<div className="gap"></div>
-				<div className="right">
+				<div className='gap'></div>
+				<div className='right'>
 					<br />
 					<br />
 					{itinerary === undefined || itinerary.length === 0 ? (

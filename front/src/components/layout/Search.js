@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import ArchiContext from "../../context/archiTour/archiContext";
+
 function Search() {
 	const archiContext = useContext(ArchiContext);
 	const [text, setText] = useState("");
@@ -16,18 +17,18 @@ function Search() {
 
 	return (
 		<div>
-			<form className="form" onSubmit={onSubmit}>
+			<form className='form' onSubmit={onSubmit}>
 				<input
-					type="text"
-					name="text"
-					placeholder="Search Buildings or Cities"
+					type='text'
+					name='text'
+					placeholder='Search Buildings or Cities'
 					value={text}
 					onChange={onChange}
 				/>
 				<input
-					type="submit"
-					value="Search"
-					className="btn btn-dark btn-block"
+					type='submit'
+					value='Search'
+					className='btn btn-dark btn-block'
 				/>
 			</form>
 		</div>

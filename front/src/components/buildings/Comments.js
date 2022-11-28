@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import ArchiContext from "../../context/archiTour/archiContext";
+import "./style/Comments.css";
 
 function Comments({ reloadData }) {
 	const archiContext = useContext(ArchiContext);
@@ -25,20 +26,20 @@ function Comments({ reloadData }) {
 	// needs to show all comments
 	return (
 		<div>
-			<div className='comments'>
-				<h3>Comments:</h3>
+			<div>
+				<h3>Reviews from other users:</h3>
 				{comments === undefined ? (
 					<div></div>
 				) : (
 					<div>
 						{comments.map((comment,i) => (
-							<div key={i}>
-								<div>{comment.comment}</div>
-								<div>
-									{comment.username === "" || comment.username === undefined
-										? "Anonymous User"
-										: comment.username}
-								</div>
+							<div className='comments' key={i}>
+								{comment.username === null || comment.username === undefined
+									? "Anonymous User"
+									: comment.username}
+								:<br></br>
+								{comment.comment}
+
 							</div>
 						))}
 					</div>
