@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from "react";
-// import Detail from './Detail';
 import Comments from "./Comments";
 import { useParams } from "react-router-dom";
 import ArchiContext from "../../context/archiTour/archiContext";
+import "./style/BuildingDetail.css";
 
 const BuildingDetail = () => {
 	const { title } = useParams();
@@ -20,7 +20,6 @@ const BuildingDetail = () => {
 	const reloadData = async () => {
 		getBuilding(title);
 	};
-
 
 	if (building !== undefined) {
 		const {
@@ -41,7 +40,7 @@ const BuildingDetail = () => {
 					<h3>Description:</h3>
 					<p>{description}</p>
 				</div>
-				<div className='gap'></div>
+				<div className='verticalGap'></div>
 				<div className='right'>
 					{/* <Detail /> */}
 					<div className='building-detail'>
@@ -54,9 +53,8 @@ const BuildingDetail = () => {
 								Open Hours: {openTime} - {closeTime}
 							</h4>
 						</div>
-
 					</div>
-
+					<div className='hrizontalGap'></div>
 					<Comments reloadData={reloadData} />
 				</div>
 			</div>

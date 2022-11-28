@@ -10,23 +10,27 @@ function Itinerary({ day, reloadData, itineraryID }) {
 	const { deleteItinerary, setItineraryIndex } = archiContext;
 
 	const clickDays = async () => {
-		setItineraryIndex(day-1);
-	}
+		setItineraryIndex(day - 1);
+	};
 
 	const deleteOneItinerary = async () => {
 		await deleteItinerary(itineraryID);
 		console.log("itineraryID", itineraryID);
 		await reloadData();
 		console.log(" delete itinerary reload Data");
-	}
+	};
 
 	return (
-		<div>
-		<button className="button" onClick={clickDays}>Day {day}</button>
-		<button className="delbutton" onClick={deleteOneItinerary}> delete </button>
+		<div className='days'>
+			<button className='button' onClick={clickDays}>
+				Day {day}
+			</button>
+			<button className='delbutton' onClick={deleteOneItinerary}>
+				{" "}
+				delete{" "}
+			</button>
 		</div>
 	);
-
 }
 
 Itinerary.propTypes = {
