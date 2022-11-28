@@ -9,8 +9,6 @@ function Stop({stop: { title, designer, address, phone, openTime, closeTime, ima
 
 	const deleteOneStop = async () => {
 		await deleteStop(itineraryID, title);
-		console.log("stop: itineraryID", itineraryID)
-		console.log("stop: title", title)
 		await reloadData();
 		console.log("Delete stop reload Data");
 	}
@@ -39,6 +37,7 @@ function Stop({stop: { title, designer, address, phone, openTime, closeTime, ima
 
 Stop.propTypes = {
 	stop: PropTypes.object.isRequired,
+	itineraryID: PropTypes.string.isRequired,
 	reloadData: PropTypes.func.isRequired,
 };
 
