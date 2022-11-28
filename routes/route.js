@@ -137,9 +137,9 @@ router.post("/addStop", async (req, res) => {
 
 router.post("/deleteStop", async (req, res) => {
 	try {
-		const delRes = await myDB.deleteStop(req.body.archiID);
+		const delRes = await myDB.deleteStop(req.body.id, req.body.title);
 		console.log("deleted stop in itineray from db ", delRes);
-		res.status(200).json({ info: "ok" });
+		res.send({ status: "ok" });
 	} catch (e) {
 		res.status(400).send({ err: e });
 	}

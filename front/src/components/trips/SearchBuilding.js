@@ -20,6 +20,7 @@ function SearchBuilding({ itineraryID, reloadData}) {
 		const rawData = await fetch(`/architectures/${text}`);
 		const res = await rawData.json();
 		if (res.length === 0){
+			alert("no result")
 			return console.log("no data");
 		}
 		console.log("on submit", res[0].imageUrl);

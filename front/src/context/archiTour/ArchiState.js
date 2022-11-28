@@ -130,6 +130,21 @@ const ArchiState = (props) => {
 		console.log("responseRaw", responseRaw);
 	}
 
+	const deleteStop = async (id, title) => {
+		const responseRaw = fetch("/deleteStop", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				id: id,
+				title: title,
+			}),
+		});
+		console.log("Delete Stop responseRaw", responseRaw);
+	}
+
 
 	return (
 		<ArchiContext.Provider
@@ -147,6 +162,7 @@ const ArchiState = (props) => {
 				getItinerary,
 				setItinerary,
 				addStop,
+				deleteStop,
 				setItineraryIndex,
 				setItineraryID,
 			}}

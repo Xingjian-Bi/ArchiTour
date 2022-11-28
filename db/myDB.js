@@ -221,13 +221,23 @@ function myDB() {
 		}
 	};
 
-	myDB.deleteStop = async (archiID) => {
+	myDB.deleteStop = async (id, title) => {
 		let client;
 		try {
 			client = new MongoClient(url);
 			await client.connect();
 			const db = client.db(DB_name).collection(tripCollection);
-			const res = await db.deleteOne({ _id: ObjectID(archiID) });
+
+			const res = await db.update(
+				{ _id: new ObjectID(id) },
+				{
+					$pull: {
+						stops: {
+							title: title,
+						},
+					},
+				}
+			);
 			console.log("delete architecture from itinerary", res);
 			return res;
 		} catch (e) {

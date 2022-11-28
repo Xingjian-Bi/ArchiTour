@@ -3,7 +3,6 @@ import React, { useContext, useEffect } from "react";
 
 import SearchBuilding from "./SearchBuilding";
 import Stop from "./Stop";
-import StopList from "./StopList";
 import ItineraryList from "./ItineraryList";
 import AddItinerary from "./AddItinerary";
 import "./style/Trip.css";
@@ -19,48 +18,58 @@ function Trip() {
 		setItinerary,
 		itinerary,
 		itineraryID,
-		setItineraryID
+		setItineraryID,
 	} = archiContext;
 
+	// useEffect(() => {
+	// 	getItinerary();
+	// 	if (itineraries[itineraryIndex] !== undefined) {
+	// 		setItinerary(itineraries[itineraryIndex].stops);
+	// 		setItineraryID(itineraries[itineraryIndex]._id);
+	// 	}
+	// }, []);
+
+	useEffect(
+		() => {
+			reloadData();
+
+			return () => {
+				console.log("Cleaining up the effect");
+			};
+		},
+		[] // call it only once
+	);
+
 	useEffect(() => {
+		console.log("called Used Effect itineraryIndex");
 		getItinerary();
-		// console.log("itineraryIndex:", itineraryIndex);
-		// console.log("itinerary:", itinerary);
 	}, [itineraryIndex]);
 
+	//load stop data for each day
 	useEffect(() => {
+		console.log("called Used Effect itineraries");
+		// getItinerary();
 		if (itineraries[itineraryIndex] !== undefined) {
 			setItinerary(itineraries[itineraryIndex].stops);
-			console.log("stops", itinerary);
 			setItineraryID(itineraries[itineraryIndex]._id);
-			console.log("itineraryID", itineraryID);
 		}
 
-		// console.log("itineraryIndex:", itineraryIndex);
-		// console.log("itinerary:", itinerary);
 	}, [itineraries]);
 
 	const reloadData = async () => {
 		await getItinerary();
+		console.log("called reloadData");
+		if (itineraries[itineraryIndex] !== undefined) {
+			setItinerary(itineraries[itineraryIndex].stops);
+			setItineraryID(itineraries[itineraryIndex]._id);
+			console.log("inside reloadData");
+		}
+		await getItinerary();
 	};
-
-	// console.log("itineraryIndex", itineraryIndex);
-
-	// var stops = {}
-	// console.log("hi",itineraries[itineraryIndex]);
-	// if (itineraries[itineraryIndex] !== undefined){
-	// 	setItinerary(itineraries[itineraryIndex].stops);
-	// 	console.log("stops", itinerary);
-
-	// }
-
-	// {_id: '6382f17f539eb8bab2914616', username: 'harry', createTime: '2022-11-27T05:11:27.518Z', stops: Array(2)}
-	// var stops = itineraries[0];
-	// console.log("print stops: ", stops)
 
 	return (
 		<div>
-			<SearchBuilding itineraryID={itineraryID} reloadData={reloadData}/>
+			<SearchBuilding itineraryID={itineraryID} reloadData={reloadData} />
 			<div className="trip">
 				<div className="left">
 					<h3>My Trip</h3>
@@ -73,12 +82,20 @@ function Trip() {
 				<div className="right">
 					<br />
 					<br />
-{/*itineraries[itineraryIndex]*/}
-					{ itinerary === undefined ?  <div>No Data</div> : <StopList stops={itinerary} /> }
-					
-					{/*			<Stop />
-			<Stop />
-			<Stop />*/}
+					{itinerary === undefined || itinerary.length === 0 ? (
+						<div>No Data</div>
+					) : (
+						<div>
+							{itinerary.map((stop, i) => (
+								<Stop
+									key={i}
+									stop={stop}
+									reloadData={reloadData}
+									itineraryID={itineraryID}
+								/>
+							))}
+						</div>
+					)}
 				</div>
 			</div>
 		</div>
