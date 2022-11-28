@@ -9,12 +9,11 @@ import {
 	GET_USER,
 	// GET_COMMENT,
 	// ADD_COMMENT,
-  GET_ITINERARY, 
-  SET_ITINERARY, 
-  SET_ITINERARYINDEX, 
-  SET_ITINERARYID
+	GET_ITINERARY,
+	SET_ITINERARY,
+	SET_ITINERARYINDEX,
+	SET_ITINERARYID,
 } from "../types";
-
 
 const ArchiState = (props) => {
 	const initialState = {
@@ -66,7 +65,6 @@ const ArchiState = (props) => {
 		});
 	};
 
-
 	// Get User
 	const getUser = async () => {
 		// console.log("fuction getting called", username);
@@ -77,8 +75,11 @@ const ArchiState = (props) => {
 		console.log("test if got printed", res.user);
 		dispatch({
 			type: GET_USER,
-      
-  // Add Comment
+			payload: res,
+		});
+	};
+
+	// Add Comment
 	const addComment = async (archiid, userid, comment) => {
 		console.log("addComment fuction getting called", archiid);
 		const responseRaw = await fetch("/archiComment", {
@@ -108,7 +109,7 @@ const ArchiState = (props) => {
 			}),
 		});
 		console.log("responseRaw", responseRaw);
-	}
+	};
 
 	const getItinerary = async () => {
 		const rawData = await fetch("/allItinerary");
@@ -132,7 +133,7 @@ const ArchiState = (props) => {
 			}),
 		});
 		console.log("Delete Itinerary responseRaw", responseRaw);
-	}
+	};
 
 	const setItineraryIndex = async (index) => {
 		const res = index;
@@ -140,8 +141,7 @@ const ArchiState = (props) => {
 			type: SET_ITINERARYINDEX,
 			payload: res,
 		});
-	}
-
+	};
 
 	const setItineraryID = async (id) => {
 		const res = id;
@@ -149,7 +149,7 @@ const ArchiState = (props) => {
 			type: SET_ITINERARYID,
 			payload: res,
 		});
-	}
+	};
 
 	const setItinerary = async (obj) => {
 		const res = obj;
@@ -157,17 +157,18 @@ const ArchiState = (props) => {
 			type: SET_ITINERARY,
 			payload: res,
 		});
-	}
+	};
 
-
-	const addStop = async (itinerayID,
+	const addStop = async (
+		itinerayID,
 		imageUrl,
 		title,
 		designer,
 		address,
 		phone,
 		openTime,
-		closeTime) => {
+		closeTime
+	) => {
 		const responseRaw = fetch("/addStop", {
 			method: "POST",
 			headers: {
@@ -186,7 +187,7 @@ const ArchiState = (props) => {
 			}),
 		});
 		console.log("responseRaw", responseRaw);
-	}
+	};
 
 	const deleteStop = async (id, title) => {
 		const responseRaw = fetch("/deleteStop", {
@@ -201,8 +202,7 @@ const ArchiState = (props) => {
 			}),
 		});
 		console.log("Delete Stop responseRaw", responseRaw);
-	}
-
+	};
 
 	return (
 		<ArchiContext.Provider
