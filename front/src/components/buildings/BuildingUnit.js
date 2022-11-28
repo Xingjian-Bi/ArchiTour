@@ -2,18 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function BuildingUnit({ building: { title, imageUrl, city } }) {
-	console.log(title);
+	// console.log(title);
 	return (
 		<div className='buildingUnit'>
 			{/* this will call routes in App.js and create a route to BuildingDetail */}
 			<Link to={`/building/${title}`}>
-				more
-				{/* <img className='img' src={imageUrl} alt='{title}' /> */}
+				<img className='img' src={imageUrl} alt='{title}' />
 			</Link>
-
 			<div className='subheader'>
-				<h3 className='title'>{title}</h3>
-				<h3 className='city'>{city}</h3>
+				<h5 className='title'>{title}</h5>
+				<h5 className='city'>{city}</h5>
 			</div>
 		</div>
 	);

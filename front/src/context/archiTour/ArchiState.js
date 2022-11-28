@@ -1,12 +1,27 @@
 import React, { useEffect, useReducer } from "react";
 import ArchiContext from "./archiContext";
 import ArchiReducer from "./archiReducer";
-import { SHOW_BUILDINGS, SEARCH_BUILDINGS, GET_BUILDING, GET_ITINERARY, SET_ITINERARY, SET_ITINERARYINDEX, SET_ITINERARYID} from "../types";
+
+import {
+	SHOW_BUILDINGS,
+	SEARCH_BUILDINGS,
+	GET_BUILDING,
+	GET_USER,
+	// GET_COMMENT,
+	// ADD_COMMENT,
+  GET_ITINERARY, 
+  SET_ITINERARY, 
+  SET_ITINERARYINDEX, 
+  SET_ITINERARYID
+} from "../types";
+
 
 const ArchiState = (props) => {
 	const initialState = {
 		buildings: [],
 		building: {},
+		user: "",
+		// comments: [],
 		itineraries: [],
 		itinerary: [],
 		itineraryIndex: 0,
@@ -31,7 +46,6 @@ const ArchiState = (props) => {
 
 	// Search Buildings
 	const searchBuildings = async (text) => {
-		console.log(text);
 		const rawData = await fetch(`/architectures/${text}`);
 		const res = await rawData.json();
 		dispatch({
@@ -42,15 +56,44 @@ const ArchiState = (props) => {
 
 	// Get Building
 	const getBuilding = async (title) => {
-		console.log("fuction getting called", title);
 		// Needs to get the specific building
 		const rawData = await fetch(`/architectures/${title}`);
 		const res = await rawData.json();
-		// console.log("getBuilding" )
+		console.log("test building res", res[0]);
 		dispatch({
 			type: GET_BUILDING,
-			payload: res[0], //因为res是个list但是只有一个value?
+			payload: res[0], //res是个list但是只有一个value
 		});
+	};
+
+
+	// Get User
+	const getUser = async () => {
+		// console.log("fuction getting called", username);
+		// Needs to get the user
+		const rawData = await fetch("/getUsername");
+		// const rawData = await fetch(`/getUser/${username}`);
+		const res = await rawData.json();
+		console.log("test if got printed", res.user);
+		dispatch({
+			type: GET_USER,
+      
+  // Add Comment
+	const addComment = async (archiid, userid, comment) => {
+		console.log("addComment fuction getting called", archiid);
+		const responseRaw = await fetch("/archiComment", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				archiID: archiid,
+				user: userid,
+				comment: comment,
+			}),
+		});
+		console.log(responseRaw);
+		// state.comments.push({ username: state.user, comment: comment });
 	};
 
 	const addItinerary = async (username) => {
@@ -166,6 +209,13 @@ const ArchiState = (props) => {
 			value={{
 				buildings: state.buildings,
 				building: state.building,
+				user: state.user,
+				// comment: state.comment,
+				showBuildings,
+				searchBuildings,
+				getBuilding,
+				getUser,
+				addComment,
 				itineraries: state.itineraries,
 				itinerary: state.itinerary,
 				itineraryIndex: state.itineraryIndex,
