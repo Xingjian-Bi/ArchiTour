@@ -21,6 +21,7 @@ const BuildingDetail = () => {
 		getBuilding(title);
 	};
 
+
 	if (building !== undefined) {
 		const {
 			imageUrl,
@@ -53,6 +54,7 @@ const BuildingDetail = () => {
 								Open Hours: {openTime} - {closeTime}
 							</h4>
 						</div>
+
 					</div>
 
 					<Comments reloadData={reloadData} />

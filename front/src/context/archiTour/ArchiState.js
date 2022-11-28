@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 import ArchiContext from "./archiContext";
 import ArchiReducer from "./archiReducer";
+
 import {
 	SHOW_BUILDINGS,
 	SEARCH_BUILDINGS,
@@ -8,7 +9,12 @@ import {
 	GET_USER,
 	// GET_COMMENT,
 	// ADD_COMMENT,
+  GET_ITINERARY, 
+  SET_ITINERARY, 
+  SET_ITINERARYINDEX, 
+  SET_ITINERARYID
 } from "../types";
+
 
 const ArchiState = (props) => {
 	const initialState = {
@@ -16,6 +22,10 @@ const ArchiState = (props) => {
 		building: {},
 		user: "",
 		// comments: [],
+		itineraries: [],
+		itinerary: [],
+		itineraryIndex: 0,
+		itineraryID: "",
 	};
 
 	const [state, dispatch] = useReducer(ArchiReducer, initialState);
@@ -56,6 +66,7 @@ const ArchiState = (props) => {
 		});
 	};
 
+
 	// Get User
 	const getUser = async () => {
 		// console.log("fuction getting called", username);
@@ -66,11 +77,8 @@ const ArchiState = (props) => {
 		console.log("test if got printed", res.user);
 		dispatch({
 			type: GET_USER,
-			payload: res,
-		});
-	};
-
-	// Add Comment
+      
+  // Add Comment
 	const addComment = async (archiid, userid, comment) => {
 		console.log("addComment fuction getting called", archiid);
 		const responseRaw = await fetch("/archiComment", {
@@ -88,6 +96,114 @@ const ArchiState = (props) => {
 		// state.comments.push({ username: state.user, comment: comment });
 	};
 
+	const addItinerary = async (username) => {
+		const responseRaw = fetch("/addItinerary", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				username: username,
+			}),
+		});
+		console.log("responseRaw", responseRaw);
+	}
+
+	const getItinerary = async () => {
+		const rawData = await fetch("/allItinerary");
+		const res = await rawData.json();
+		console.log("getItinerary res", res);
+		dispatch({
+			type: GET_ITINERARY,
+			payload: res,
+		});
+	};
+
+	const deleteItinerary = async (id) => {
+		const responseRaw = fetch("/deleteItinerary", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				id: id,
+			}),
+		});
+		console.log("Delete Itinerary responseRaw", responseRaw);
+	}
+
+	const setItineraryIndex = async (index) => {
+		const res = index;
+		dispatch({
+			type: SET_ITINERARYINDEX,
+			payload: res,
+		});
+	}
+
+
+	const setItineraryID = async (id) => {
+		const res = id;
+		dispatch({
+			type: SET_ITINERARYID,
+			payload: res,
+		});
+	}
+
+	const setItinerary = async (obj) => {
+		const res = obj;
+		dispatch({
+			type: SET_ITINERARY,
+			payload: res,
+		});
+	}
+
+
+	const addStop = async (itinerayID,
+		imageUrl,
+		title,
+		designer,
+		address,
+		phone,
+		openTime,
+		closeTime) => {
+		const responseRaw = fetch("/addStop", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				itinerayID: itinerayID,
+				imageUrl: imageUrl,
+				title: title,
+				designer: designer,
+				address: address,
+				phone: phone,
+				openTime: openTime,
+				closeTime: closeTime,
+			}),
+		});
+		console.log("responseRaw", responseRaw);
+	}
+
+	const deleteStop = async (id, title) => {
+		const responseRaw = fetch("/deleteStop", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				id: id,
+				title: title,
+			}),
+		});
+		console.log("Delete Stop responseRaw", responseRaw);
+	}
+
+
 	return (
 		<ArchiContext.Provider
 			value={{
@@ -100,6 +216,21 @@ const ArchiState = (props) => {
 				getBuilding,
 				getUser,
 				addComment,
+				itineraries: state.itineraries,
+				itinerary: state.itinerary,
+				itineraryIndex: state.itineraryIndex,
+				itineraryID: state.itineraryID,
+				showBuildings,
+				searchBuildings,
+				getBuilding,
+				addItinerary,
+				getItinerary,
+				setItinerary,
+				deleteItinerary,
+				addStop,
+				deleteStop,
+				setItineraryIndex,
+				setItineraryID,
 			}}
 		>
 			{props.children}
