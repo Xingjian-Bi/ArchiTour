@@ -12,6 +12,7 @@ import ArchiContext from "../../context/archiTour/archiContext";
 function Trip() {
 	const archiContext = useContext(ArchiContext);
 	const {
+		user,
 		getItinerary,
 		itineraries,
 		itineraryIndex,
@@ -37,33 +38,33 @@ function Trip() {
 				console.log("Cleaining up the effect");
 			};
 		},
-		[] // call it only once
+		[] // eslint-disable-line react-hooks/exhaustive-deps
 	);
 
 	useEffect(() => {
 		console.log("called Used Effect itineraryIndex");
-		getItinerary();
-	}, [itineraryIndex]);
+		getItinerary(user);
+	}, [itineraryIndex]);// eslint-disable-line react-hooks/exhaustive-deps
 
 	//load stop data for each day
 	useEffect(() => {
 		console.log("called Used Effect itineraries");
-		// getItinerary();
 		if (itineraries[itineraryIndex] !== undefined) {
 			setItinerary(itineraries[itineraryIndex].stops);
 			setItineraryID(itineraries[itineraryIndex]._id);
 		}
-	}, [itineraries]);
+	}, [itineraries]); // eslint-disable-line react-hooks/exhaustive-deps
 
 	const reloadData = async () => {
-		await getItinerary();
+		await getItinerary(user);
 		console.log("called reloadData");
 		if (itineraries[itineraryIndex] !== undefined) {
 			setItinerary(itineraries[itineraryIndex].stops);
 			setItineraryID(itineraries[itineraryIndex]._id);
 			console.log("inside reloadData");
 		}
-		await getItinerary();
+		await getItinerary(user);
+		console.log("*********user", user);
 	};
 
 	return (
@@ -74,7 +75,6 @@ function Trip() {
 					<h3>My Trip</h3>
 					<h3>Day {itineraryIndex + 1}</h3>
 					<br />
-					{/*<ItineraryList itineraries={itineraries} />*/}
 					{itineraries === undefined || itineraries.length === 0 ? (
 						<div>No itineraries </div>
 					) : (

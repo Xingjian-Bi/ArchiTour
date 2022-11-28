@@ -10,14 +10,14 @@ const BuildingDetail = () => {
 	const { getBuilding, building } = archiContext;
 
 	useEffect(() => {
-		// getBuilding(title);
 		reloadData();
 		return () => {
 			console.log("Cleaining up the effect");
 		};
-	}, []);
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	const reloadData = async () => {
+		await getBuilding(title);
 		getBuilding(title);
 	};
 

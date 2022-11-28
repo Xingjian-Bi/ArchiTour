@@ -1,31 +1,55 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import ArchiContext from "../../context/archiTour/archiContext";
 // import logo from "./logo192.png";
 
 function Navbar({ icon, title }) {
+	const archiContext = useContext(ArchiContext);
+	const { user } = archiContext;
 	return (
 		<nav className="navbar bg-primary">
 			<h1>
-				{/* <img
-					src={logo}
-					alt="logo"
-					style={{ width: "20px", margin: "auto", display: "block" }}
-				/> */}
 				{title}
 			</h1>
 			<ul>
 				<li>
 					<Link to="/">Home</Link>
 				</li>
-				
-
+				{user === "" || user === undefined ? (
+					<li>
+						<br />
+					</li>
+				) : (
 					<li>
 						<Link to="/myTrips">MyTrip</Link>
 					</li>
+				)}
+
+				{user === "" || user === undefined ? (
+				<li>
+					<Link to="/login">Login</Link>
+				</li>
+				) : (
 					<li>
-						<Link to="/login">Login</Link>
+						Welcome {user}
 					</li>
-				
+				)}
+
+				{user === "" || user === undefined ? (
+				<li>
+					<br />
+				</li>
+				) : (
+				<li>
+					<Link to="/login">Different account</Link>
+				</li>
+				)}
+
+
+
+{/*				<li>
+					<Link to="/login">Login</Link>
+				</li>*/}
 			</ul>
 		</nav>
 	);

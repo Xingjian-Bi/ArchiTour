@@ -37,16 +37,6 @@ export default function foo(state, action) {
 				...state,
 				user: action.payload,
 			};
-		// case GET_COMMENT:
-		// 	return {
-		// 		...state,
-		// 		comment: action.payload,
-		// 	};
-		// case ADD_COMMENT:
-		// 	return {
-		// 		...state,
-		// 		building: action.payload,
-		// 	};
 		case GET_ITINERARY:
 			return {
 				...state,

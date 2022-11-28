@@ -25,7 +25,6 @@ function SearchBuilding({ itineraryID, reloadData}) {
 		}
 		console.log("on submit", res[0].imageUrl);
 		console.log(res[0].title);
-		// const { building } = archiContext;
 		addStop(itineraryID,
 				res[0].imageUrl,
 				res[0].title,
@@ -34,10 +33,6 @@ function SearchBuilding({ itineraryID, reloadData}) {
 				res[0].phone,
 				res[0].openTime,
 				res[0].closeTime);
-		// console.log("onSubmit building", building);
-		// const {imageUrl, city} = building;
-		// console.log("imageUrl", imageUrl);
-		// console.log("city", city);
 
 		setText("");
 		await reloadData();

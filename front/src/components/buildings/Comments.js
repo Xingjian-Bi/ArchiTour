@@ -16,7 +16,7 @@ function Comments({ reloadData }) {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		console.log(text, user);
-		addComment(building._id, user.user, text);
+		addComment(building._id, user, text);
 		console.log(comments);
 		setText("");
 		await reloadData();
@@ -31,11 +31,11 @@ function Comments({ reloadData }) {
 					<div></div>
 				) : (
 					<div>
-						{comments.map((comment) => (
-							<div key={comment.comment}>
+						{comments.map((comment,i) => (
+							<div key={i}>
 								<div>{comment.comment}</div>
 								<div>
-									{comment.username === null || comment.username === undefined
+									{comment.username === "" || comment.username === undefined
 										? "Anonymous User"
 										: comment.username}
 								</div>
