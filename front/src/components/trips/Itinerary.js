@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
-
-// import Stop from "./Stop";
 import "./style/Itinerary.css";
 import ArchiContext from "../../context/archiTour/archiContext";
 
@@ -21,11 +19,11 @@ function Itinerary({ day, reloadData, itineraryID }) {
 	};
 
 	return (
-		<div className='days'>
-			<button className='button' onClick={clickDays}>
+		<div className="days">
+			<button className="button" onClick={clickDays}>
 				Day {day}
 			</button>
-			<button className='delbutton' onClick={deleteOneItinerary}>
+			<button className="delbutton" onClick={deleteOneItinerary}>
 				{" "}
 				delete{" "}
 			</button>

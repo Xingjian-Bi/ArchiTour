@@ -1,22 +1,21 @@
 import React, { useContext, useEffect } from "react";
 import ArchiContext from "../../context/archiTour/archiContext";
 import BuildingUnit from "../buildings/BuildingUnit";
+import "./style/BuildingGrid.css";
 
-// function BuildingGrid({buildings}) {
 function BuildingGrid() {
 	const archiContext = useContext(ArchiContext);
 
 	// import building from archiContext
 	const { buildings, getUser } = archiContext;
-	// console.log(buildings);
 	useEffect(() => {
 		getUser();
-	}, []);
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	return (
 		<div>
 			<h2>Browse Architecture:</h2>
-			<div style={buildingStyle}>
+			<div className="buildingStyle">
 				{buildings.map((building) => (
 					<BuildingUnit key={building._id} building={building} />
 				))}
@@ -25,10 +24,5 @@ function BuildingGrid() {
 	);
 }
 
-const buildingStyle = {
-	display: "grid",
-	gridTemplateColumns: "repeat(3, 1fr)",
-	gridGap: "1rem",
-};
-
+BuildingGrid.propTypes = {};
 export default BuildingGrid;

@@ -7,30 +7,26 @@ import logo from "./logo.jpg";
 
 import ArchiContext from "../../context/archiTour/archiContext";
 
-
 function Navbar({ icon, title }) {
 	const archiContext = useContext(ArchiContext);
 	const { user } = archiContext;
 	return (
-		<nav className='navbar bg-primary'>
+		<nav className="navbar bg-primary">
 			<h1>
-
 				<img
 					src={icon}
-					alt='logo'
-					style={{ width: "40px", marginRight: "10px", display: "block" }}
+					alt="logo"
+					style={{
+						width: "40px",
+						marginRight: "10px",
+						display: "block",
+					}}
 				/>
 				{title}
 			</h1>
 			<ul>
 				<li>
-					<Link to='/'>Home</Link>
-				</li>
-				<li>
-					<Link to='/myTrips'>MyTrip</Link>
-				</li>
-				<li>
-					<Link to='/login'>Login</Link>
+					<Link to="/">Home</Link>
 				</li>
 
 				{user === "" || user === undefined ? (
@@ -44,27 +40,22 @@ function Navbar({ icon, title }) {
 				)}
 
 				{user === "" || user === undefined ? (
-				<li>
-					<Link to="/login">Login</Link>
-				</li>
-				) : (
 					<li>
-						Welcome {user}
+						<Link to="/login">Login</Link>
 					</li>
+				) : (
+					<li>Welcome {user}</li>
 				)}
 
 				{user === "" || user === undefined ? (
-				<li>
-					<br />
-				</li>
+					<li>
+						<br />
+					</li>
 				) : (
-				<li>
-					<Link to="/login">Different account</Link>
-				</li>
+					<li>
+						<Link to="/login">Different account</Link>
+					</li>
 				)}
-{/*				<li>
-					<Link to="/login">Login</Link>
-				</li>*/}
 			</ul>
 		</nav>
 	);
@@ -76,6 +67,7 @@ Navbar.defaultProps = {
 };
 
 Navbar.propTypes = {
+	icon: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 };
 

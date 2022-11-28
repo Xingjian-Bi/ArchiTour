@@ -16,7 +16,7 @@ function AddItinerary({ reloadData }) {
 
 	return (
 		<div>
-			<button className='button' onClick={addTrip}>
+			<button className="button" onClick={addTrip}>
 				Add Day
 			</button>
 		</div>

@@ -72,7 +72,6 @@ function myDB() {
 			const db = client.db(DB_name).collection(archiCollection);
 			const query1 = { city: value };
 			const query2 = { title: value };
-			// const res1 = await db.find(query1).toArray();
 			const res = await db
 				.find({
 					$or: [query1, query2],
@@ -96,7 +95,6 @@ function myDB() {
 			const db = client.db(DB_name).collection(archiCollection);
 			let query = {};
 			const res = await db.find(query).toArray();
-			// console.log('list of all architectures', res);
 			return res;
 		} catch (e) {
 			console.log(e);

@@ -67,9 +67,7 @@ const ArchiState = (props) => {
 		// console.log("fuction getting called", username);
 		// Needs to get the user
 		const rawData = await fetch("/getUsername");
-		// const rawData = await fetch(`/getUser/${username}`);
 		const res = await rawData.json();
-		console.log("test if got printed", res.user);
 		dispatch({
 			type: GET_USER,
 			payload: res.user,
@@ -91,7 +89,6 @@ const ArchiState = (props) => {
 			}),
 		});
 		console.log(responseRaw);
-		// state.comments.push({ username: state.user, comment: comment });
 	};
 
 	const addItinerary = async (username) => {
@@ -216,7 +213,6 @@ const ArchiState = (props) => {
 				getBuilding,
 				getUser,
 				addComment,
-
 				addItinerary,
 				getItinerary,
 				setItinerary,

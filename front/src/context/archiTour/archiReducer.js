@@ -1,19 +1,14 @@
-
 import {
 	SHOW_BUILDINGS,
 	SEARCH_BUILDINGS,
 	GET_BUILDING,
 	GET_USER,
-	// GET_COMMENT,
-	// ADD_COMMENT,
-  GET_ITINERARY, 
-  SET_ITINERARY, 
-  SET_ITINERARYID, 
-  SET_ITINERARYINDEX 
-  } from "../types";
+	GET_ITINERARY,
+	SET_ITINERARY,
+	SET_ITINERARYID,
+	SET_ITINERARYINDEX,
+} from "../types";
 
-
-// export default (state, action) => {
 export default function foo(state, action) {
 	switch (action.type) {
 		case SHOW_BUILDINGS:
@@ -32,7 +27,6 @@ export default function foo(state, action) {
 				building: action.payload,
 			};
 		case GET_USER:
-			console.log("test reducer", action.payload);
 			return {
 				...state,
 				user: action.payload,
@@ -57,7 +51,6 @@ export default function foo(state, action) {
 				...state,
 				itineraryIndex: action.payload,
 			};
-
 
 		default:
 			return state;

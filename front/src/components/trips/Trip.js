@@ -1,13 +1,10 @@
 import React, { useContext, useEffect } from "react";
-// import PropTypes from "prop-types";
-
 import SearchBuilding from "./SearchBuilding";
 import Stop from "./Stop";
 import Itinerary from "./Itinerary";
 import AddItinerary from "./AddItinerary";
-import "./style/Trip.css";
-
 import ArchiContext from "../../context/archiTour/archiContext";
+import "./style/Trip.css";
 
 function Trip() {
 	const archiContext = useContext(ArchiContext);
@@ -21,14 +18,6 @@ function Trip() {
 		itineraryID,
 		setItineraryID,
 	} = archiContext;
-
-	// useEffect(() => {
-	// 	getItinerary();
-	// 	if (itineraries[itineraryIndex] !== undefined) {
-	// 		setItinerary(itineraries[itineraryIndex].stops);
-	// 		setItineraryID(itineraries[itineraryIndex]._id);
-	// 	}
-	// }, []);
 
 	useEffect(
 		() => {
@@ -44,7 +33,7 @@ function Trip() {
 	useEffect(() => {
 		console.log("called Used Effect itineraryIndex");
 		getItinerary(user);
-	}, [itineraryIndex]);// eslint-disable-line react-hooks/exhaustive-deps
+	}, [itineraryIndex]); // eslint-disable-line react-hooks/exhaustive-deps
 
 	//load stop data for each day
 	useEffect(() => {
@@ -61,17 +50,15 @@ function Trip() {
 		if (itineraries[itineraryIndex] !== undefined) {
 			setItinerary(itineraries[itineraryIndex].stops);
 			setItineraryID(itineraries[itineraryIndex]._id);
-			console.log("inside reloadData");
 		}
 		await getItinerary(user);
-		console.log("*********user", user);
 	};
 
 	return (
 		<div>
 			<SearchBuilding itineraryID={itineraryID} reloadData={reloadData} />
-			<div className='trip'>
-				<div className='left'>
+			<div className="trip">
+				<div className="left">
 					<h3>My Trip</h3>
 					<h4>Day {itineraryIndex + 1}</h4>
 					<br />
@@ -91,8 +78,8 @@ function Trip() {
 					)}
 					<AddItinerary reloadData={reloadData} />
 				</div>
-				<div className='gap'></div>
-				<div className='right'>
+				<div className="gap"></div>
+				<div className="right">
 					<br />
 					<br />
 					{itinerary === undefined || itinerary.length === 0 ? (
@@ -116,5 +103,4 @@ function Trip() {
 }
 
 Trip.propTypes = {};
-
 export default Trip;

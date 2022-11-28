@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const myDB = require("../db/myDB.js");
-// const passport = require("passport");
 
 require("dotenv").config();
 
@@ -40,16 +39,10 @@ router.get("/getUser/:value", async (req, res) => {
 	}
 });
 
-// router.get("/logout", (req, res) => {
-// 	req.logout();
-// 	res.redirect("/signin");
-// });
-
 // route for registering a new user
 router.post("/registerUser", async (req, res) => {
 	try {
 		const findUserRes = await myDB.findUserName(req.body.username);
-		// console.log("Get username from login", findUserRes);
 
 		// If findUserRes array is empty then we call registerUser function
 		if (findUserRes !== null) {
@@ -60,10 +53,7 @@ router.post("/registerUser", async (req, res) => {
 				req.body.password
 			);
 			console.log("Created user in db", registerUserRes);
-			// res.redirect("/login");
 			res.status(200).json({ info: "ok" });
-			// Send findUserRes to frontend and it will update accordingly
-			// res.send({ users: findUserRes });
 		}
 	} catch (e) {
 		res.status(400).send({ err: e });
@@ -85,7 +75,6 @@ router.get("/architectures/:value", async (req, res) => {
 router.get("/allarchitectures", async (req, res) => {
 	try {
 		const archiRes = await myDB.getAllArchitectures();
-		// console.log('get all architectures data from db ', archiRes);
 		res.send(archiRes);
 	} catch (e) {
 		res.status(400).send({ err: e });
@@ -94,7 +83,12 @@ router.get("/allarchitectures", async (req, res) => {
 
 //route for add comment
 router.post("/archiComment", async (req, res) => {
-	console.log("test router", req.body.archiID, req.body.user, req.body.comment);
+	console.log(
+		"test router",
+		req.body.archiID,
+		req.body.user,
+		req.body.comment
+	);
 	try {
 		const commentRes = await myDB.archiComment(
 			req.body.archiID,

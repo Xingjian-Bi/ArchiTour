@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
 
 function SignupPage() {
 	const [username, setUsername] = useState("");
@@ -35,18 +34,18 @@ function SignupPage() {
 	return (
 		<div>
 			<h1>Create an account</h1>
-			<form onSubmit={submitSignUp} method='post'>
-				{error !== "" ? <div className='alert'> {error} </div> : ""}
+			<form onSubmit={submitSignUp} method="post">
+				{error !== "" ? <div className="alert"> {error} </div> : ""}
 				<div>
-					<label className='form-label' htmlFor='username'>
+					<label className="form-label" htmlFor="username">
 						Username
 					</label>
 					<input
-						className='form-control'
-						id='username'
-						name='username'
-						type='text'
-						autoComplete='username'
+						className="form-control"
+						id="username"
+						name="username"
+						type="text"
+						autoComplete="username"
 						onChange={(e) => {
 							setUsername(e.target.value);
 						}}
@@ -55,15 +54,15 @@ function SignupPage() {
 					/>
 				</div>
 				<div>
-					<label className='form-label' htmlFor='current-password'>
+					<label className="form-label" htmlFor="current-password">
 						Password
 					</label>
 					<input
-						className='form-control'
-						id='current-password'
-						name='password'
-						type='password'
-						autoComplete='current-password'
+						className="form-control"
+						id="current-password"
+						name="password"
+						type="password"
+						autoComplete="current-password"
 						onChange={(e) => {
 							setPassword(e.target.value);
 						}}
@@ -71,17 +70,13 @@ function SignupPage() {
 					/>
 				</div>
 				<br />
-				<button className='btn btn-primary' type='submit'>
+				<button className="btn btn-primary" type="submit">
 					Sign up
 				</button>
-				{/*          <Link to="/signup">
-          <button className="btn btn-primary" type="submit">
-            Sign in
-          </button>
-          </Link>*/}
 			</form>
 		</div>
 	);
 }
 
+SignupPage.propTypes = {};
 export default SignupPage;
