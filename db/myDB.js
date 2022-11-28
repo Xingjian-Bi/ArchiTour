@@ -64,7 +64,6 @@ function myDB() {
 	};
 
 	//search architectures
-	//needs to be modified
 	myDB.getArchitectures = async (value) => {
 		let client;
 		try {
@@ -145,13 +144,13 @@ function myDB() {
 		}
 	};
 
-	myDB.getItinerary = async () => {
+	myDB.getItinerary = async (username) => {
 		let client;
 		try {
 			client = new MongoClient(url);
 			await client.connect();
 			const db = client.db(DB_name).collection(tripCollection);
-			let query = {};
+			let query = {username: username};
 			const res = await db.find(query).sort({ createTime: 1 }).toArray();
 			console.log("get of all Itineraries from db", res);
 			return res;

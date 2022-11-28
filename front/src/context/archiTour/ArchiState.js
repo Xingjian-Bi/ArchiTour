@@ -7,8 +7,6 @@ import {
 	SEARCH_BUILDINGS,
 	GET_BUILDING,
 	GET_USER,
-	// GET_COMMENT,
-	// ADD_COMMENT,
 	GET_ITINERARY,
 	SET_ITINERARY,
 	SET_ITINERARYINDEX,
@@ -20,7 +18,6 @@ const ArchiState = (props) => {
 		buildings: [],
 		building: {},
 		user: "",
-		// comments: [],
 		itineraries: [],
 		itinerary: [],
 		itineraryIndex: 0,
@@ -75,7 +72,7 @@ const ArchiState = (props) => {
 		console.log("test if got printed", res.user);
 		dispatch({
 			type: GET_USER,
-			payload: res,
+			payload: res.user,
 		});
 	};
 
@@ -111,8 +108,8 @@ const ArchiState = (props) => {
 		console.log("responseRaw", responseRaw);
 	};
 
-	const getItinerary = async () => {
-		const rawData = await fetch("/allItinerary");
+	const getItinerary = async (username) => {
+		const rawData = await fetch(`/allItinerary/${username}`);
 		const res = await rawData.json();
 		console.log("getItinerary res", res);
 		dispatch({
@@ -210,16 +207,16 @@ const ArchiState = (props) => {
 				buildings: state.buildings,
 				building: state.building,
 				user: state.user,
-				// comment: state.comment,
+				itineraries: state.itineraries,
+				itinerary: state.itinerary,
+				itineraryIndex: state.itineraryIndex,
+				itineraryID: state.itineraryID,
 				showBuildings,
 				searchBuildings,
 				getBuilding,
 				getUser,
 				addComment,
-				itineraries: state.itineraries,
-				itinerary: state.itinerary,
-				itineraryIndex: state.itineraryIndex,
-				itineraryID: state.itineraryID,
+
 				addItinerary,
 				getItinerary,
 				setItinerary,

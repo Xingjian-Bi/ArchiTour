@@ -108,9 +108,9 @@ router.post("/archiComment", async (req, res) => {
 	}
 });
 
-router.get("/allItinerary", async (req, res) => {
+router.get("/allItinerary/:username", async (req, res) => {
 	try {
-		const itineraryRes = await myDB.getItinerary();
+		const itineraryRes = await myDB.getItinerary(req.params.username);
 		console.log("added an itinerary from db ", itineraryRes);
 		res.send(itineraryRes);
 	} catch (e) {
