@@ -4,7 +4,7 @@
 
  [Nov15 60% release link](https://github.com/Xingjian-Bi/ArchiTour/releases/tag/60%25)
 
- [Nov15 60% repo histry link](https://github.com/Xingjian-Bi/ArchiTour/tree/4f5f275b94f383b8252288653d625c7fb96807bc)
+ [Nov15 60% repo history link](https://github.com/Xingjian-Bi/ArchiTour/tree/4f5f275b94f383b8252288653d625c7fb96807bc)
 
 
 
@@ -12,7 +12,7 @@
 
  [Nov22 80% release link](https://github.com/Xingjian-Bi/ArchiTour/releases/tag/80%25)
 
- [Nov22 80% repo histry link](https://github.com/Xingjian-Bi/ArchiTour/tree/490120eb65f28109b1e14b497ef99e6a07f5cf53)
+ [Nov22 80% repo history link](https://github.com/Xingjian-Bi/ArchiTour/tree/490120eb65f28109b1e14b497ef99e6a07f5cf53)
 
 
 
