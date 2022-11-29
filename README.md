@@ -36,7 +36,7 @@ This is project3 for NEU [CS5610](https://johnguerra.co/classes/webDevelopment_f
 
 [Slides Here](https://docs.google.com/presentation/d/1zne3HRTQPDRAu650DZ58_x2izV387ufvwrgc-LbzDTM/edit#slide=id.g17b3cadc138_0_5)
 
-Video Here
+[Video Here](https://youtu.be/r8_uVI29qes)
 
 [Delpoyed Here](https://architour-back.onrender.com)
 
@@ -68,7 +68,7 @@ Design Document Here
   yarn start
   ```
 
-- Go to http://localhost:8000 to visit our site! 
+- Go to [http://localhost:3000]( http://localhost:3000)  to visit our site! 
 
 
 
