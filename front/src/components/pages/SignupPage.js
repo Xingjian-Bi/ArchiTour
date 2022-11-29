@@ -21,7 +21,7 @@ function SignupPage() {
 		if (!responseRaw.ok) {
 			setError("Username exits");
 		} else {
-			window.location.href = "/login";
+			window.location.href = "/";
 		}
 	}
 
