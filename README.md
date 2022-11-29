@@ -40,7 +40,7 @@ This is project3 for NEU [CS5610](https://johnguerra.co/classes/webDevelopment_f
 
 [Delpoyed Here](https://architour-back.onrender.com)
 
-Design Document Here
+[Design Document Here](https://github.com/Xingjian-Bi/ArchiTour/blob/main/ArchiTour%20Design%20Document.pdf)
 
 
 
