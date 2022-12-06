@@ -15,6 +15,7 @@ function BuildingGrid() {
 	return (
 		<div>
 			<h2>Browse Architecture:</h2>
+// 		you definitely want to add pagination here 
 			<div className="buildingStyle">
 				{buildings.map((building) => (
 					<BuildingUnit key={building._id} building={building} />
