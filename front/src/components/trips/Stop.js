@@ -33,7 +33,7 @@ function Stop({
 							Open Hours: {openTime} - {closeTime}
 						</h4>
 					</div>
-					<button onClick={deleteOneStop}> delete </button>
+					<button className="delstopbutton" onClick={deleteOneStop}> delete </button>
 				</div>
 			</div>
 		</div>

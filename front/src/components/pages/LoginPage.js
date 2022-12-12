@@ -32,18 +32,18 @@ function LoginPage() {
 	return (
 		<div>
 			<h1>Sign in</h1>
-			<form onSubmit={submitLogin} method='post'>
-				{error !== "" ? <div className='alert'> {error} </div> : ""}
+			<form onSubmit={submitLogin} method="post">
+				{error !== "" ? <div className="alert"> {error} </div> : ""}
 				<div>
-					<label className='form-label' htmlFor='username'>
+					<label className="form-label" htmlFor="username">
 						Username
 					</label>
 					<input
-						className='form-control'
-						id='username'
-						name='username'
-						type='text'
-						autoComplete='username'
+						className="form-control"
+						id="username"
+						name="username"
+						type="text"
+						autoComplete="username"
 						onChange={(e) => {
 							setUsername(e.target.value);
 						}}
@@ -52,15 +52,15 @@ function LoginPage() {
 					/>
 				</div>
 				<div>
-					<label className='form-label' htmlFor='current-password'>
+					<label className="form-label" htmlFor="current-password">
 						Password
 					</label>
 					<input
-						className='form-control'
-						id='current-password'
-						name='password'
-						type='password'
-						autoComplete='current-password'
+						className="form-control"
+						id="current-password"
+						name="password"
+						type="password"
+						autoComplete="current-password"
 						onChange={(e) => {
 							setPassword(e.target.value);
 						}}
@@ -68,11 +68,11 @@ function LoginPage() {
 					/>
 				</div>
 				<br />
-				<button className='btn btn-dark' type='submit'>
+				<button className="btn btn-dark" type="submit">
 					Sign in
 				</button>
-				<Link to='/signup'>
-					<button className='btn btn-light'>Sign up</button>
+				<Link to="/signup">
+					<button className="btn btn-light">Sign up</button>
 				</Link>
 			</form>
 		</div>

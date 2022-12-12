@@ -7,3 +7,10 @@
 	width: 50px;
 	margin: 0;
 }
+
+.delstopbutton {
+	background-color: #f0efef;
+	color: #b0b0a4;
+	border: 0px solid #dc3545;
+	padding: 3%;
+}
