@@ -43,7 +43,7 @@ This is project3 for NEU [CS5610](https://johnguerra.co/classes/webDevelopment_f
 
 [Design Document Here](https://github.com/Xingjian-Bi/ArchiTour/blob/main/ArchiTour%20Design%20Document.pdf)
 
-
+[Usability Study Report - Yi Zhou](https://docs.google.com/document/d/1OwgrCDdnoLmOVbweW5jDMx6TOE-v5zLZqLZuVDqYRe0/edit?usp=sharing)
 
 ### Instructions to Build Locally
 
