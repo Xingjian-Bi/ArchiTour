@@ -11,22 +11,24 @@ function Navbar({ icon, title }) {
 	const archiContext = useContext(ArchiContext);
 	const { user } = archiContext;
 	return (
-		<nav className="navbar bg-primary">
+		<nav className='navbar bg-primary'>
 			<h1>
 				<img
 					src={icon}
-					alt="logo"
+					alt='logo'
 					style={{
 						width: "40px",
+						height: "40px",
 						marginRight: "10px",
 						display: "block",
 					}}
 				/>
-				{title}
+				<Link to='/'>{title}</Link>
 			</h1>
+			<h3>Find your next worth-visiting architecture</h3>
 			<ul>
 				<li>
-					<Link to="/">Home</Link>
+					<Link to='/'>Home</Link>
 				</li>
 
 				{user === "" || user === undefined ? (
@@ -35,13 +37,13 @@ function Navbar({ icon, title }) {
 					</li>
 				) : (
 					<li>
-						<Link to="/myTrips">MyTrip</Link>
+						<Link to='/myTrips'>MyTrip</Link>
 					</li>
 				)}
 
 				{user === "" || user === undefined ? (
 					<li>
-						<Link to="/login">Login</Link>
+						<Link to='/login'>Login</Link>
 					</li>
 				) : (
 					<li>Welcome {user}</li>
@@ -53,7 +55,7 @@ function Navbar({ icon, title }) {
 					</li>
 				) : (
 					<li>
-						<Link to="/login">Different account</Link>
+						<Link to='/login'>Different account</Link>
 					</li>
 				)}
 			</ul>

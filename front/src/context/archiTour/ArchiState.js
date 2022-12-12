@@ -16,6 +16,7 @@ import {
 const ArchiState = (props) => {
 	const initialState = {
 		buildings: [],
+		totalbuildings: 1000,
 		building: {},
 		user: "",
 		itineraries: [],
@@ -202,6 +203,7 @@ const ArchiState = (props) => {
 		<ArchiContext.Provider
 			value={{
 				buildings: state.buildings,
+				totalbuildings: state.totalbuildings,
 				building: state.building,
 				user: state.user,
 				itineraries: state.itineraries,
