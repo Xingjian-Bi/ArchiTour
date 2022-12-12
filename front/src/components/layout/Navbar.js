@@ -41,7 +41,7 @@ function Navbar({ icon, title }) {
 					</li>
 				)}*/}
 				<li>
-					<Link to="/myTrips">MyTrip</Link>
+					<Link to='/myTrips'>MyTrip</Link>
 				</li>
 
 				{user === "" || user === undefined ? (
@@ -58,7 +58,7 @@ function Navbar({ icon, title }) {
 					</li>
 				) : (
 					<li>
-						<Link to='/login'>Different account</Link>
+						<Link to='/login'>Switch account</Link>
 					</li>
 				)}
 			</ul>
