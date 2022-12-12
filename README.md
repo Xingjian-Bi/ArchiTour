@@ -87,6 +87,16 @@ This is project3 for NEU [CS5610](https://johnguerra.co/classes/webDevelopment_f
 
 ### Screenshot (V2.0)
 
+![SigninPage](./images/signin 2.0.png)
+
+![SignUpPage](./images/signup 2.0.png)
+
+![HomePage](./images/home 2.0.png)
+
+![DetailPage](./images/detail 2.0.png)
+
+![MyTripPage](./images/mytrip 2.0.png)
+
 ### Color Palette
 
 <img src="./images/palette.png" width="600">
