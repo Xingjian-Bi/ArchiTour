@@ -20,7 +20,7 @@ function Search() {
 		// setText("");
 	};
 	return (
-		<div>
+		<section>
 			<div
 				style={{
 					height: "20px",
@@ -50,7 +50,7 @@ function Search() {
 					height: "30px",
 				}}
 			></div>
-		</div>
+		</section>
 	);
 }
 

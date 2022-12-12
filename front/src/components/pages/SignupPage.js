@@ -75,7 +75,7 @@ function SignupPage() {
 					/>
 				</div>
 				<br />
-				<button className="btn btn-primary" type="submit">
+				<button className="btn btn-dark" type="submit">
 					Sign up
 				</button>
 			</form>
