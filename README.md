@@ -1,4 +1,5 @@
 # **ArchiTour**
+I love this travelling app design, and all the code is well-structure in the folder. It frontend it well connected to backend and store signin data to  MongoDB and show to fronted. And I also love the idea of planning days and add trip, so users can set up plan in order while they facing tons of places they want to go. In the future or next project, you may add calendar function so that user can access to it on specific day, which is even more user friendly:) Overall, Good Job!
 
 ### 60% CheckPoint
 
