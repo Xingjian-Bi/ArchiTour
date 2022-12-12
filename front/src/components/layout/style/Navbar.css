@@ -13,15 +13,19 @@
 .navbar h1 {
 	display: flex;
 }
+.navbar h2 {
+	color: #000000;
+}
 .navbar h3 {
 	display: flex;
 }
 .navbar ul {
 	display: flex;
+	color: #000000;
 }
 
 .navbar a {
-	color: #fff;
+	color: #000000;
 	/* padding: 0.45rem; */
 	margin: 0 0.4rem;
 }

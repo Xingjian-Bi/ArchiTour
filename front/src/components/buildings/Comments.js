@@ -17,7 +17,9 @@ function Comments({ reloadData }) {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		console.log(text, user);
-		addComment(building._id, user, text);
+		if (text !== "") {
+			addComment(building._id, user, text);
+		}
 		console.log(comments);
 		setText("");
 		await reloadData();

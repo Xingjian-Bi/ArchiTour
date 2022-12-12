@@ -34,49 +34,51 @@ const BuildingDetail = () => {
 			closeTime,
 		} = building;
 		return (
-			<div className="building">
-				<div className="left">
-					<h2>{title}</h2>
-					<img src={imageUrl} alt="test" />
-					<h3>Description:</h3>
-					<p>{description}</p>
-				</div>
-				<div className="verticalGap"></div>
-				<div className="right">
-					<div className="building-detail">
-						<h3>{city}</h3>
-						<div className="detailInfo">
-							<h4>Designer: {designer}</h4>
-							<h4>Address: {address}</h4>
-							<h4>Phone: {phone}</h4>
-							<h4>
-								Open Hours: {openTime} - {closeTime}
-							</h4>
-						</div>
+			<main>
+				<div className="building">
+					<div className="left">
+						<h2>{title}</h2>
+						<img src={imageUrl} alt="test" />
+						<h3>Description:</h3>
+						<p>{description}</p>
 					</div>
-					<div className="hrizontalGap"></div>
-							<h3>Add to itinerary :</h3>
+					<div className="verticalGap"></div>
+					<div className="right">
+						<div className="building-detail">
+							<h3>{city}</h3>
+							<div className="detailInfo">
+								<h4>Designer: {designer}</h4>
+								<h4>Address: {address}</h4>
+								<h4>Phone: {phone}</h4>
+								<h4>
+									Open Hours: {openTime} - {closeTime}
+								</h4>
+							</div>
+						</div>
+						<div className="hrizontalGap"></div>
+						<h3>Add to itinerary :</h3>
 
-							{itineraries === undefined ||
-							itineraries.length === 0 ? (
-								<div>No itineraries </div>
-							) : (
-								<div>
-									{itineraries.map((itinerary, i) => (
-										<AddArchitecture
-											key={itinerary._id}
-											day={i + 1}
-											itineraryID={itinerary._id}
-											buildingName={title}
-										/>
-									))}
-								</div>
-							)}
+						{itineraries === undefined ||
+						itineraries.length === 0 ? (
+							<div>No itineraries </div>
+						) : (
+							<div>
+								{itineraries.map((itinerary, i) => (
+									<AddArchitecture
+										key={itinerary._id}
+										day={i + 1}
+										itineraryID={itinerary._id}
+										buildingName={title}
+									/>
+								))}
+							</div>
+						)}
 
-					<div className="hrizontalGap"></div>
-					<Comments reloadData={reloadData} />
+						<div className="hrizontalGap"></div>
+						<Comments reloadData={reloadData} />
+					</div>
 				</div>
-			</div>
+			</main>
 		);
 	}
 };
