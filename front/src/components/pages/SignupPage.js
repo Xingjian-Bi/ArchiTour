@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import ArchiContext from "../../context/archiTour/archiContext";
 
 function SignupPage() {
+
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
+	const archiContext = useContext(ArchiContext);
+	const { addItinerary } = archiContext;
 
 	async function register() {
 		const responseRaw = await fetch("/registerUser", {
@@ -21,6 +25,7 @@ function SignupPage() {
 		if (!responseRaw.ok) {
 			setError("Username exits");
 		} else {
+			addItinerary(username);
 			window.location.href = "/";
 		}
 	}

@@ -70,8 +70,8 @@ function myDB() {
 			client = new MongoClient(url);
 			await client.connect();
 			const db = client.db(DB_name).collection(archiCollection);
-			const query1 = { city: value };
-			const query2 = { title: value };
+			const query1 = { city: new RegExp(value, "i") };
+			const query2 = { title: new RegExp(value, "i") };
 			const res = await db
 				.find({
 					$or: [query1, query2],
@@ -148,7 +148,7 @@ function myDB() {
 			client = new MongoClient(url);
 			await client.connect();
 			const db = client.db(DB_name).collection(tripCollection);
-			let query = {username: username};
+			let query = { username: username };
 			const res = await db.find(query).sort({ createTime: 1 }).toArray();
 			console.log("get of all Itineraries from db", res);
 			return res;

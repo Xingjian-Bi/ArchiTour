@@ -2,12 +2,13 @@ import React, { useEffect, useContext } from "react";
 import Comments from "./Comments";
 import { useParams } from "react-router-dom";
 import ArchiContext from "../../context/archiTour/archiContext";
+import AddArchitecture from "./AddArchitecture";
 import "./style/BuildingDetail.css";
 
 const BuildingDetail = () => {
 	const { title } = useParams();
 	const archiContext = useContext(ArchiContext);
-	const { getBuilding, building } = archiContext;
+	const { getBuilding, building, itineraries } = archiContext;
 
 	useEffect(() => {
 		reloadData();
@@ -53,6 +54,25 @@ const BuildingDetail = () => {
 							</h4>
 						</div>
 					</div>
+					<div className="hrizontalGap"></div>
+							<div>Add to itinerary :</div>
+
+							{itineraries === undefined ||
+							itineraries.length === 0 ? (
+								<div>No itineraries </div>
+							) : (
+								<div>
+									{itineraries.map((itinerary, i) => (
+										<AddArchitecture
+											key={itinerary._id}
+											day={i + 1}
+											itineraryID={itinerary._id}
+											buildingName={title}
+										/>
+									))}
+								</div>
+							)}
+
 					<div className="hrizontalGap"></div>
 					<Comments reloadData={reloadData} />
 				</div>

@@ -56,48 +56,60 @@ function Trip() {
 
 	return (
 		<div>
-			<SearchBuilding itineraryID={itineraryID} reloadData={reloadData} />
-			<div className="trip">
-				<div className="left">
-					<h3>My Trip</h3>
-					<h4>Day {itineraryIndex + 1}</h4>
-					<br />
-					{itineraries === undefined || itineraries.length === 0 ? (
-						<div>No itineraries </div>
-					) : (
-						<div>
-							{itineraries.map((itinerary, i) => (
-								<Itinerary
-									key={itinerary._id}
-									day={i + 1}
-									reloadData={reloadData}
-									itineraryID={itinerary._id}
-								/>
-							))}
+			{user === "" || user === undefined ? (
+				<div className="alert"> Please login to create itinerary </div>
+			) : (
+				<div>
+					<SearchBuilding
+						itineraryID={itineraryID}
+						reloadData={reloadData}
+					/>
+					<div className="trip">
+						<div className="left">
+							<h3>My Trip</h3>
+							<h4>Day {itineraryIndex + 1}</h4>
+							<br />
+							{itineraries === undefined ||
+							itineraries.length === 0 ? (
+								<div>No itineraries </div>
+							) : (
+								<div>
+									{itineraries.map((itinerary, i) => (
+										<Itinerary
+											key={itinerary._id}
+											day={i + 1}
+											reloadData={reloadData}
+											itineraryID={itinerary._id}
+										/>
+									))}
+								</div>
+							)}
+							<AddItinerary reloadData={reloadData} />
 						</div>
-					)}
-					<AddItinerary reloadData={reloadData} />
-				</div>
-				<div className="gap"></div>
-				<div className="right">
-					<br />
-					<br />
-					{itinerary === undefined || itinerary.length === 0 ? (
-						<div>No Data</div>
-					) : (
-						<div>
-							{itinerary.map((stop, i) => (
-								<Stop
-									key={i}
-									stop={stop}
-									reloadData={reloadData}
-									itineraryID={itineraryID}
-								/>
-							))}
+						<div className="gap"></div>
+						<div className="right">
+							<br />
+							<br />
+							{itinerary === undefined ||
+							itinerary.length === 0 ? (
+								<div>No Data</div>
+							) : (
+								<div>
+									{itinerary.map((stop, i) => (
+										<Stop
+											key={i}
+											stop={stop}
+											reloadData={reloadData}
+											itineraryID={itineraryID}
+										/>
+									))}
+								</div>
+							)}
 						</div>
-					)}
+					</div>
 				</div>
-			</div>
+			)}
+			
 		</div>
 	);
 }
