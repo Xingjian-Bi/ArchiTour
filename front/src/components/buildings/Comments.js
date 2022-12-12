@@ -17,7 +17,9 @@ function Comments({ reloadData }) {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		console.log(text, user);
-		addComment(building._id, user, text);
+		if (text !== "") {
+			addComment(building._id, user, text);
+		}
 		console.log(comments);
 		setText("");
 		await reloadData();
@@ -33,9 +35,8 @@ function Comments({ reloadData }) {
 				) : (
 					<div>
 						{comments.map((comment, i) => (
-							<div className="comments" key={i}>
-								{comment.username === null ||
-								comment.username === undefined
+							<div className='comments' key={i}>
+								{comment.username === null || comment.username === undefined
 									? "Anonymous User"
 									: comment.username}
 								:<br></br>
@@ -45,20 +46,16 @@ function Comments({ reloadData }) {
 					</div>
 				)}
 			</div>
-			<div className="addcomments">
-				<form className="form" onSubmit={onSubmit}>
+			<div className='addcomments'>
+				<form className='form' onSubmit={onSubmit}>
 					<input
-						type="text"
-						name="text"
-						placeholder="Add Comments Here"
+						type='text'
+						name='text'
+						placeholder='Add Comments Here'
 						value={text}
 						onChange={onChange}
 					/>
-					<input
-						type="submit"
-						value="Add"
-						className="btn btn-dark btn-block"
-					/>
+					<input type='submit' value='Add' className='btn btn-dark btn-block' />
 				</form>
 			</div>
 		</div>
