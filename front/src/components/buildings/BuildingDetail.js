@@ -55,7 +55,7 @@ const BuildingDetail = () => {
 						</div>
 					</div>
 					<div className="hrizontalGap"></div>
-							<div>Add to itinerary :</div>
+							<h3>Add to itinerary :</h3>
 
 							{itineraries === undefined ||
 							itineraries.length === 0 ? (

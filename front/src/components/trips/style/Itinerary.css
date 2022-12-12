@@ -4,13 +4,14 @@
 	background-color: #f0efef;
 	color: #050507;
 	border: 1px solid #362e2d;
-	padding: 0.4rem 0.8rem;
+	padding: 3%;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 14px;
 	margin: 4px 0px;
 	cursor: pointer;
+
 }
 .delbutton {
 	width: 60px;
