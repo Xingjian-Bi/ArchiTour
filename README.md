@@ -74,28 +74,26 @@ This is project3 for NEU [CS5610](https://johnguerra.co/classes/webDevelopment_f
 
 
 ### Screenshot (V1.0)
-
 ![SigninPage](./images/signin.png)
-
-![SignUpPage](./images/signup.png)
-
-![HomePage](./images/home.png)
-
-![DetailPage](./images/detail.png)
-
-![MyTripPage](./images/mytrip.png)
-
 ### Screenshot (V2.0)
-
 ![SigninPage](./images/signin_2.0.png)
-
+### Screenshot (V1.0)
+![SignUpPage](./images/signup.png)
+### Screenshot (V2.0)
 ![SignUpPage](./images/signup_2.0.png)
-
+### Screenshot (V1.0)
+![HomePage](./images/home.png)
+### Screenshot (V2.0)
 ![HomePage](./images/home_2.0.png)
-
+### Screenshot (V1.0)
+![DetailPage](./images/detail.png)
+### Screenshot (V2.0)
 ![DetailPage](./images/detail_2.0.png)
-
+### Screenshot (V1.0)
+![MyTripPage](./images/mytrip.png)
+### Screenshot (V2.0)
 ![MyTripPage](./images/mytrip_2.0.png)
+
 
 ### Color Palette
 
