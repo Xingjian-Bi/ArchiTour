@@ -29,7 +29,7 @@ function Navbar({ icon, title }) {
 					<Link to="/">Home</Link>
 				</li>
 
-				{user === "" || user === undefined ? (
+				{/*				{user === "" || user === undefined ? (
 					<li>
 						<br />
 					</li>
@@ -37,7 +37,10 @@ function Navbar({ icon, title }) {
 					<li>
 						<Link to="/myTrips">MyTrip</Link>
 					</li>
-				)}
+				)}*/}
+				<li>
+					<Link to="/myTrips">MyTrip</Link>
+				</li>
 
 				{user === "" || user === undefined ? (
 					<li>

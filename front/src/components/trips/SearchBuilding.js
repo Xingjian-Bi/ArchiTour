@@ -13,7 +13,6 @@ function SearchBuilding({ itineraryID, reloadData }) {
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		console.log("text", text);
 		const rawData = await fetch(`/architectures/${text}`);
 		const res = await rawData.json();
 		if (res.length === 0) {
