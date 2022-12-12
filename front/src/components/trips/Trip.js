@@ -55,7 +55,7 @@ function Trip() {
 	};
 
 	return (
-		<div>
+		<main>
 			{user === "" || user === undefined ? (
 				<div className="alert"> Please login to create itinerary </div>
 			) : (
@@ -110,7 +110,7 @@ function Trip() {
 				</div>
 			)}
 			
-		</div>
+		</main>
 	);
 }
 

@@ -25,7 +25,7 @@ function Navbar({ icon, title }) {
 				/>
 				<Link to='/'>{title}</Link>
 			</h1>
-			<h3>Find your next worth-visiting architecture</h3>
+			<h2>Find your next worth-visiting architecture</h2>
 			<ul>
 				<li>
 					<Link to='/'>Home</Link>

@@ -30,7 +30,7 @@ function LoginPage() {
 	};
 
 	return (
-		<div>
+		<main>
 			<h1>Sign in</h1>
 			<form onSubmit={submitLogin} method="post">
 				{error !== "" ? <div className="alert"> {error} </div> : ""}
@@ -75,7 +75,7 @@ function LoginPage() {
 					<button className="btn btn-light">Sign up</button>
 				</Link>
 			</form>
-		</div>
+		</main>
 	);
 }
 
