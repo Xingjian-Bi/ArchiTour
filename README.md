@@ -74,27 +74,38 @@ This is project3 for NEU [CS5610](https://johnguerra.co/classes/webDevelopment_f
 
 
 ### Screenshot (V1.0)
-
 ![SigninPage](./images/signin.png)
-
-![SignUpPage](./images/signup.png)
-
-![HomePage](./images/home.png)
-
-![DetailPage](./images/detail.png)
-
-![MyTripPage](./images/mytrip.png)
-
 ### Screenshot (V2.0)
+![SigninPage](./images/signin_2.0.png)
+### Screenshot (V1.0)
+![SignUpPage](./images/signup.png)
+### Screenshot (V2.0)
+![SignUpPage](./images/signup_2.0.png)
+### Screenshot (V1.0)
+![HomePage](./images/home.png)
+### Screenshot (V2.0)
+![HomePage](./images/home_2.0.png)
+### Screenshot (V1.0)
+![DetailPage](./images/detail.png)
+### Screenshot (V2.0)
+![DetailPage](./images/detail_2.0.png)
+### Screenshot (V1.0)
+![MyTripPage](./images/mytrip.png)
+### Screenshot (V2.0)
+![MyTripPage](./images/mytrip_2.0.png)
+
 
 ### Color Palette
 
-![ColorPalette](./images/palette.png)
-Since we are happy about and our original design and we received positive feedback about our colors from some users, we decided to stick to our original red color, however we did search for color palettes and found the above one that fits our site most and made some small changes according to it
+<img src="./images/palette.png" width="600">
+Since we are happy about and our original design and we received positive feedback about our colors from some users, we decided to stick to our original red color, however we did search for color palettes and found the above one that fits our site most and made some small changes according to it.
+<br>
 The new red #E3311D is a little bit more bright than the original one, we also changed our navbar font color to balck just to increase contrast which is better for accessability.
-We used dark grey #362E2D and light grey #F0EFEF for our buttons instead of the original red ones, we used #050507 which is slightly lighter than black for our alert(to differentiate from our main red color) and text, and the olive-grey is for some text placeholder
+<br>
+We used dark grey #362E2D and light grey #F0EFEF for our buttons instead of the original red ones, we used #050507 which is slightly lighter than black for our alert(to differentiate from our main red color) and text, and the olive-grey is for some text placeholder.  
 
 ### Fonts
 
 We have decided that we need to express a delightful and modern feeling for our travl application, we need to use a vivid and cheerful fonts,
-Among many sans-serif fonts, we have chonsen 'Archivo'.
+Among many sans-serif fonts, we have chonsen 'Archivo'.  
+
