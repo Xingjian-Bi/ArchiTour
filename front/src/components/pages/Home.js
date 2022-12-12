@@ -7,10 +7,10 @@ import BuildingGrid from "../buildings/BuildingGrid";
 function Home() {
 	return (
 		<Fragment>
-		<main>
-			<Search />
-			<BuildingGrid />
-		</main>
+			<main>
+				<Search />
+				<BuildingGrid />
+			</main>
 		</Fragment>
 	);
 }

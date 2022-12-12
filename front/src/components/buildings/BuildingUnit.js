@@ -7,16 +7,16 @@ function BuildingUnit({ building: { title, imageUrl, city } }) {
 	// console.log(title);
 	return (
 		<section>
-		<div className="buildingUnit">
-			{/* this will call routes in App.js and create a route to BuildingDetail */}
-			<Link to={`/building/${title}`}>
-				<img className="img" src={imageUrl} alt={title} />
-			</Link>
-			<div className="subheader">
-				<h3 className="title">{title}</h3>
-				<h3 className="city">{city}</h3>
+			<div className="buildingUnit">
+				{/* this will call routes in App.js and create a route to BuildingDetail */}
+				<Link to={`/building/${title}`}>
+					<img className="img" src={imageUrl} alt={title} />
+				</Link>
+				<div className="subheader">
+					<h3 className="title">{title}</h3>
+					<h3 className="city">{city}</h3>
+				</div>
 			</div>
-		</div>
 		</section>
 	);
 }

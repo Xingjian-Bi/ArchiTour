@@ -13,17 +13,20 @@ function App() {
 	return (
 		<ArchiState>
 			<Router>
-				<div className='App'>
+				<div className="App">
 					<Navbar />
-					<div className='container'>
+					<div className="container">
 						<Routes>
-							<Route path='/' element={<Home />} />
+							<Route path="/" element={<Home />} />
 
 							{/* <Route path='/user/login' element={<Login />} /> */}
-							<Route path='/building/:title' element={<BuildingDetail />} />
-							<Route path='/login' element={<LoginPage />} />
-							<Route path='/signup' element={<SignupPage />} />
-							<Route path='/myTrips' element={<Trip />} />
+							<Route
+								path="/building/:title"
+								element={<BuildingDetail />}
+							/>
+							<Route path="/login" element={<LoginPage />} />
+							<Route path="/signup" element={<SignupPage />} />
+							<Route path="/myTrips" element={<Trip />} />
 						</Routes>
 					</div>
 				</div>

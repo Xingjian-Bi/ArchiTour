@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./style/AddArchitecture.css";
 import ArchiContext from "../../context/archiTour/archiContext";
 
-function AddArchitecture({ day, itineraryID, buildingName}) {
+function AddArchitecture({ day, itineraryID, buildingName }) {
 	const archiContext = useContext(ArchiContext);
 	const { addStop } = archiContext;
 

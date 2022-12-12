@@ -17,7 +17,6 @@ function Search() {
 	};
 	const clear = (e) => {
 		showBuildings();
-		// setText("");
 	};
 	return (
 		<section>
@@ -26,22 +25,22 @@ function Search() {
 					height: "20px",
 				}}
 			></div>
-			<form className='form' onSubmit={onSubmit}>
+			<form className="form" onSubmit={onSubmit}>
 				<input
-					type='text'
-					name='text'
-					placeholder='Search Buildings or Cities'
+					type="text"
+					name="text"
+					placeholder="Search Buildings or Cities"
 					value={text}
 					onChange={onChange}
 				/>
 				<input
-					type='submit'
-					value='Search'
-					className='btn btn-dark btn-block'
+					type="submit"
+					value="Search"
+					className="btn btn-dark btn-block"
 				/>
 			</form>
 			{buildings.length < totalbuildings && (
-				<button className='btn btn-light btn-block' onClick={clear}>
+				<button className="btn btn-light btn-block" onClick={clear}>
 					Clear Results
 				</button>
 			)}

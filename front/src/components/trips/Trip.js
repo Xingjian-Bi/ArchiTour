@@ -109,7 +109,6 @@ function Trip() {
 					</div>
 				</div>
 			)}
-			
 		</main>
 	);
 }

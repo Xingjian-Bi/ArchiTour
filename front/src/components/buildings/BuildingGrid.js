@@ -16,7 +16,7 @@ function BuildingGrid() {
 	return (
 		<section>
 			<h2>Browse Architecture:</h2>
-			<div className='buildingStyle'>
+			<div className="buildingStyle">
 				{buildings.map((building) => (
 					<BuildingUnit key={building._id} building={building} />
 				))}
