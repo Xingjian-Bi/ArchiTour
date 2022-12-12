@@ -1,9 +1,9 @@
 .button {
 	width: 80px;
 	height: 40px;
-	background-color: ccc;
-	color: black;
-	border: 1px solid #ccc;
+	background-color: #f0efef;
+	color: #050507;
+	border: 1px solid #362e2d;
 	padding: 0.4rem 0.8rem;
 	text-align: center;
 	text-decoration: none;
@@ -15,9 +15,9 @@
 .delbutton {
 	width: 60px;
 	height: 40px;
-	background-color: white;
-	color: black;
-	border: 1px solid #dc3545;
+	background-color: #f0efef;
+	color: #b0b0a4;
+	border: 0px solid #dc3545;
 	padding: 0.4rem 0.8rem;
 	/* margin-left: 16px; */
 	margin: 4px 10px;
