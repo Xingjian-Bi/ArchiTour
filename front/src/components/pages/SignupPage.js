@@ -37,7 +37,7 @@ function SignupPage() {
 	};
 
 	return (
-		<div>
+		<main>
 			<h1>Create an account</h1>
 			<form onSubmit={submitSignUp} method="post">
 				{error !== "" ? <div className="alert"> {error} </div> : ""}
@@ -79,7 +79,7 @@ function SignupPage() {
 					Sign up
 				</button>
 			</form>
-		</div>
+		</main>
 	);
 }
 
