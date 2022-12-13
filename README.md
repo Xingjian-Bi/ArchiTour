@@ -81,7 +81,7 @@ Video Here V2.0
 
 [Design Document Here](https://github.com/Xingjian-Bi/ArchiTour/blob/main/ArchiTour%20Design%20Document.pdf)
 
-
+[Usability Study Report - Yi Zhou](https://docs.google.com/document/d/1OwgrCDdnoLmOVbweW5jDMx6TOE-v5zLZqLZuVDqYRe0/edit?usp=sharing)
 
 
 
