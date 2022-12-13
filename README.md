@@ -7,7 +7,7 @@ I love this travelling app design, and all the code is well-structure in the fol
 
 ### Objective
 
-This is project3 for NEU [CS5610](https://johnguerra.co/classes/webDevelopment_fall_2022/).   We build a full stack application with Node + Express + Mongo + React (hooks). Architour is a travel app specially designed for architecture lovers. It allows users to find interesting architecture in cities, check out their information or read other people’s reviews. Users can create multi-day itinerary and add stops from existing architecture collections. 
+This is project3 for NEU [CS5610](https://johnguerra.co/classes/webDevelopment_fall_2022/).  We build a full stack application with Node + Express + Mongo + React (hooks). Architour is a travel app specially designed for architecture lovers. It allows users to find interesting architecture in cities, check out their information or read other people’s reviews. Users can create multi-day itinerary and add stops from existing architecture collections. 
 
 
 
@@ -18,20 +18,6 @@ This is project3 for NEU [CS5610](https://johnguerra.co/classes/webDevelopment_f
 
 
 ### [Final Project Code freeze Repo History Link](https://github.com/Xingjian-Bi/ArchiTour/tree/95da23f668b3856a81c2047adbc440af92afefa8)
-
-
-
-### Project3 CheckPoints
-
- [Nov15 60% release link](https://github.com/Xingjian-Bi/ArchiTour/releases/tag/60%25)
-
- [Nov15 60% repo history link](https://github.com/Xingjian-Bi/ArchiTour/tree/4f5f275b94f383b8252288653d625c7fb96807bc)
-
- [Nov22 80% release link](https://github.com/Xingjian-Bi/ArchiTour/releases/tag/80%25)
-
- [Nov22 80% repo history link](https://github.com/Xingjian-Bi/ArchiTour/tree/490120eb65f28109b1e14b497ef99e6a07f5cf53)
-
- [Final Release Link](https://github.com/Xingjian-Bi/ArchiTour/releases/tag/final_ver)
 
 
 
@@ -48,8 +34,7 @@ We used dark grey #362E2D and light grey #F0EFEF for our buttons instead of the 
 
 ### Fonts
 
-We have decided that we need to express a delightful and modern feeling for our travl application, we need to use a vivid and cheerful fonts,
-Among many sans-serif fonts, we have chonsen 'Archivo'.  
+We have decided that we need to express a delightful and modern feeling for our travel application, we need to use a vivid and cheerful fonts. Among many sans-serif fonts, we have chonsen 'Archivo' for headers and 'Open Sans' for paragraph font . 
 
 
 
@@ -65,11 +50,11 @@ Among many sans-serif fonts, we have chonsen 'Archivo'.
 
 [Slides Here V2.0](https://docs.google.com/presentation/d/1EfJQUQFZo0iB8xCJlS1xBS1eDFJuLa6ECRWPv7eJUIQ/edit?usp=sharing)
 
-Video Here V2.0
+[Video Here V2.0](https://youtu.be/ZK7XMYCi4xA)
 
 [Deployed Here V2.0](https://architourv2.onrender.com)
 
-
+<br>
 
 [Slides Here V1.0](https://docs.google.com/presentation/d/1zne3HRTQPDRAu650DZ58_x2izV387ufvwrgc-LbzDTM/edit#slide=id.g17b3cadc138_0_5)
 
@@ -77,11 +62,23 @@ Video Here V2.0
 
 [Delpoyed Here V1.0](https://architour-back.onrender.com)
 
-
+<br>
 
 [Design Document Here](https://github.com/Xingjian-Bi/ArchiTour/blob/main/ArchiTour%20Design%20Document.pdf)
 
-[Usability Study Report - Yi Zhou](https://docs.google.com/document/d/1OwgrCDdnoLmOVbweW5jDMx6TOE-v5zLZqLZuVDqYRe0/edit?usp=sharing)
+
+
+### Project3 CheckPoints
+
+ [Nov15 60% release link](https://github.com/Xingjian-Bi/ArchiTour/releases/tag/60%25)
+
+ [Nov15 60% repo history link](https://github.com/Xingjian-Bi/ArchiTour/tree/4f5f275b94f383b8252288653d625c7fb96807bc)
+
+ [Nov22 80% release link](https://github.com/Xingjian-Bi/ArchiTour/releases/tag/80%25)
+
+ [Nov22 80% repo history link](https://github.com/Xingjian-Bi/ArchiTour/tree/490120eb65f28109b1e14b497ef99e6a07f5cf53)
+
+ [Final Release Link](https://github.com/Xingjian-Bi/ArchiTour/releases/tag/final_ver)
 
 
 
