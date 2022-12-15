@@ -2,6 +2,16 @@ const express = require("express");
 const router = express.Router();
 const myDB = require("../db/myDB.js");
 
+/*
+Your projects is well put together!  
+I learned so much from reviewing this project. Especially on problem solving, 
+I can get that it was hard to debug when the code got more and more complex.
+Your team did a really good job on teamwork collaborating . 
+*/
+
+
+
+
 require("dotenv").config();
 
 router.post("/signin", async (req, res) => {
