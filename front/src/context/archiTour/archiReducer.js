@@ -9,6 +9,15 @@ import {
 	SET_ITINERARYINDEX,
 } from "../types";
 
+
+/*
+Your project is well designed!  
+Looks neat and functional as designed! 
+*/
+
+
+
+
 export default function foo(state, action) {
 	switch (action.type) {
 		case SHOW_BUILDINGS:
