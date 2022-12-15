@@ -5,6 +5,15 @@ dotenv.config();
 const url = process.env.MONGO_URL;
 const DB_name = "archi-tour-db";
 
+/*
+I really like how you being able to generate a web application 
+containing all the elements and kept the code well organized 
+in a a decent structures. It is straight forward and easy for 
+reviewer to look up. Kept code simple while readable. 
+*/
+
+
+
 function myDB() {
 	const myDB = {};
 	const usersCollection = "users";
