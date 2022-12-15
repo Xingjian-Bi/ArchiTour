@@ -13,6 +13,7 @@ function Navbar({ icon, title }) {
 	return (
 		<nav className="navbar bg-primary">
 			<h1>
+// 				I would add a link to the homepage whenever the logo is placed in the nav bar
 				<img
 					src={icon}
 					alt="logo"
